@@ -1,44 +1,221 @@
 <!DOCTYPE html>
 <html lang="is">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nord Nord Vestur</title>
-  <meta name="description" content="Nord Nord Vestur — arkitektúr.">
-  <style>
-    :root { color-scheme: light; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      background: #f4f4f2;
-      color: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-    main { text-align: center; padding: 2rem; }
-    h1 {
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    p {
-      margin-top: 1rem;
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #6b6b6b;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NNV — Norðnorðvestur</title>
+<meta name="description" content="Norðnorðvestur — arkitektar">
+
+<!--
+  Typeface: DIN Grotesk.
+  If the licensed webfont files are added later, drop them in ./fonts/ and
+  uncomment the url() sources below. Until then the local() sources pick up
+  an installed copy, and Barlow (the closest open DIN relative) carries the
+  fallback so the page never degrades to a system default.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "DIN Grotesk";
+    src: local("DIN Grotesk Medium"), local("DINGrotesk-Medium");
+    /* src: url("fonts/DINGrotesk-Medium.woff2") format("woff2"); */
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "DIN Grotesk";
+    src: local("DIN Grotesk"), local("DINGrotesk-Regular");
+    /* src: url("fonts/DINGrotesk-Regular.woff2") format("woff2"); */
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  :root {
+    /* washi — japanese paper white, warm, never clinical */
+    --paper: #f7f4ed;
+    --ink: #211f1a;
+    --ink-soft: #6e6a60;
+    --hairline: #d9d4c8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "DIN Grotesk", "D-DIN", Barlow, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  /* faint paper fibre — barely there, like held up to light */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  main {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+  }
+
+  /* ——— the mark ——— */
+
+  .mark {
+    display: flex;
+    border: 0;
+    background: none;
+    cursor: default;
+    font: inherit;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(5rem, 18vw, 13rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    user-select: none;
+    animation: settle 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .mark span {
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* on hover the letters breathe apart — generous, unhurried */
+  .mark:hover span:nth-child(1),
+  .mark.open span:nth-child(1) { transform: translateX(-0.06em); }
+  .mark:hover span:nth-child(3),
+  .mark.open span:nth-child(3) { transform: translateX(0.06em); }
+
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(0.15em); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ——— contact, top right ——— */
+
+  .contact {
+    position: fixed;
+    top: clamp(1.25rem, 4vw, 2.5rem);
+    right: clamp(1.25rem, 4vw, 2.5rem);
+    text-align: right;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 2;
+    color: var(--ink);
+    opacity: 0;
+    transform: translateY(-0.4rem);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  body:has(.mark:hover) .contact,
+  body:has(.mark.open) .contact {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0.15s;
+  }
+
+  .contact .name {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .contact a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: border-color 0.4s ease;
+  }
+  .contact a:hover { border-color: var(--ink); }
+
+  .contact .place { color: var(--ink-soft); }
+
+  /* ——— quiet corners ——— */
+
+  footer {
+    position: fixed;
+    inset: auto clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    user-select: none;
+  }
+
+  /* nord-nord-vestur: 337.5° — the needle holds the bearing */
+  .bearing {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .bearing svg {
+    width: 0.9em;
+    height: 0.9em;
+    transform: rotate(-22.5deg);
+    overflow: visible;
+  }
+  .bearing line { stroke: var(--ink-soft); stroke-width: 1.5; }
+  .bearing path { fill: var(--ink-soft); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mark { animation: none; }
+    .mark span, .contact { transition: none; }
+  }
+</style>
 </head>
 <body>
-  <main>
-    <h1>Nord Nord Vestur</h1>
-    <p>Arkitektúr</p>
-  </main>
+
+<main>
+  <button class="mark" aria-expanded="false" aria-controls="contact" aria-label="Norðnorðvestur — sýna tengiliðaupplýsingar">
+    <span>N</span><span>N</span><span>V</span>
+  </button>
+</main>
+
+<aside class="contact" id="contact">
+  <span class="name">Norðnorðvestur</span>
+  <a href="mailto:nordnordvestur@gmail.com">nordnordvestur@gmail.com</a><br>
+  <span class="place">Reykjavík, Ísland</span>
+</aside>
+
+<footer>
+  <span>64°08′N 21°56′V</span>
+  <span class="bearing">
+    <svg viewBox="0 0 10 10" aria-hidden="true">
+      <line x1="5" y1="9" x2="5" y2="2.5"/>
+      <path d="M5 0 L7 3.5 L5 2.6 L3 3.5 Z"/>
+    </svg>
+    337,5°
+  </span>
+</footer>
+
+<script>
+  // touch devices have no hover — a tap on the mark toggles the contact card
+  const mark = document.querySelector(".mark");
+  if (window.matchMedia("(hover: none)").matches) {
+    mark.addEventListener("click", () => {
+      const open = mark.classList.toggle("open");
+      mark.setAttribute("aria-expanded", open);
+    });
+  }
+</script>
+
 </body>
 </html>
