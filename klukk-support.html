@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KLUKK! — Support</title>
+<meta name="description" content="Support for the KLUKK! iOS app by NNV ehf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#f7f4ed; --ink:#211f1a; --ink-soft:#6e6a60; --hairline:#d9d4c8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.65;
+  }
+  .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
+  a.home { display:inline-block; text-decoration:none; color:var(--ink); font-weight:500;
+           letter-spacing:0.18em; text-transform:uppercase; font-size:0.78rem; margin-bottom:2.5rem;
+           border-bottom:1px solid var(--hairline); padding-bottom:2px; }
+  h1 { font-weight:500; font-size:clamp(1.9rem,5vw,2.6rem); letter-spacing:0.01em; line-height:1.1; }
+  .lead { color:var(--ink-soft); font-size:1.05rem; margin:0.8rem 0 2.2rem; }
+  h2 { font-weight:500; font-size:1.15rem; margin:2rem 0 0.5rem; }
+  p { margin:0.6rem 0; color:#332f28; }
+  ul { margin:0.6rem 0 0.6rem 1.2rem; color:#332f28; }
+  li { margin:0.3rem 0; }
+  a { color:var(--ink); }
+  .mail { font-weight:500; }
+  footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
+           color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="home" href="/">← Norðnorðvestur</a>
+  <h1>KLUKK! — Support</h1>
+  <p class="lead">A one-tap stopwatch that saves each timed session to your iOS Calendar.</p>
+
+  <h2>Getting started</h2>
+  <ul>
+    <li>On first launch, tap <strong>Link calendar</strong> and grant Calendar access.</li>
+    <li>Tap the big pink button to start; tap again to stop — the session is saved to your
+        chosen calendar automatically.</li>
+    <li>Tap the time to set a <strong>target</strong>; KLUKK! alerts you when you reach it.</li>
+    <li>Add the <strong>Home Screen widget</strong> to start and stop without opening the app.</li>
+    <li>Export any session as <code>.ics</code>, or your whole log as <code>.xml</code>, from the
+        calendar list and Settings.</li>
+  </ul>
+
+  <h2>Common questions</h2>
+  <p><strong>Nothing saves to my calendar.</strong> Make sure you granted Calendar access in
+  Settings → Privacy &amp; Security → Calendars → KLUKK! (Full Access lets it also create
+  calendars).</p>
+  <p><strong>The target alarm didn't ring.</strong> Allow Notifications for KLUKK! in
+  Settings → Notifications.</p>
+
+  <h2>Contact</h2>
+  <p>Need help, found a bug, or have a suggestion? Email
+  <a class="mail" href="mailto:nordnordvestur@gmail.com">nordnordvestur@gmail.com</a> and we'll
+  get back to you.</p>
+
+  <p><a href="/klukk-privacy.html">Privacy Policy →</a></p>
+
+  <footer>© NNV ehf. · Reykjavík, Ísland</footer>
+</div>
+</body>
+</html>
