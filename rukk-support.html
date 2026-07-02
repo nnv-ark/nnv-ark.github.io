@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUKK — Support</title>
+<meta name="description" content="Support for the RUKK macOS invoicing app by NNV ehf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#f7f4ed; --ink:#211f1a; --ink-soft:#6e6a60; --hairline:#d9d4c8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.65;
+  }
+  .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
+  a.home { display:inline-block; text-decoration:none; color:var(--ink); font-weight:500;
+           letter-spacing:0.18em; text-transform:uppercase; font-size:0.78rem; margin-bottom:2.5rem;
+           border-bottom:1px solid var(--hairline); padding-bottom:2px; }
+  h1 { font-weight:500; font-size:clamp(1.9rem,5vw,2.6rem); letter-spacing:0.01em; line-height:1.1; }
+  .lead { color:var(--ink-soft); font-size:1.05rem; margin:0.8rem 0 2.2rem; }
+  h2 { font-weight:500; font-size:1.15rem; margin:2rem 0 0.5rem; }
+  p { margin:0.6rem 0; color:#332f28; }
+  ul { margin:0.6rem 0 0.6rem 1.2rem; color:#332f28; }
+  li { margin:0.3rem 0; }
+  a { color:var(--ink); }
+  .mail { font-weight:500; }
+  footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
+           color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="home" href="/">← Norðnorðvestur</a>
+  <h1>RUKK — Support</h1>
+  <p class="lead">A fast, native macOS invoicing app for small Icelandic businesses and sole traders.</p>
+
+  <h2>Getting started</h2>
+  <ul>
+    <li>Create a <strong>company</strong> — its name, kennitala, and bank claim details go on every invoice.</li>
+    <li>Add a <strong>customer</strong>, then create an invoice and fill in the line items.</li>
+    <li>Choose the invoice format in <strong>Settings → Invoice</strong>: the Icelandic layout
+        (VSK per line, legal footer) or the simpler <strong>Universal</strong> English template.</li>
+    <li><strong>Issue</strong> the invoice to lock its number, then export as PDF or e-invoice
+        (UBL / TS-136 / PEPPOL), or email it straight from the app.</li>
+    <li>Import billable time from <strong>Tyme</strong> or <strong>Calendar</strong> as invoice lines
+        from the Línur section of the editor.</li>
+  </ul>
+
+  <h2>Common questions</h2>
+  <p><strong>The app asks me to subscribe.</strong> RUKK requires an active subscription
+  (“RUKK áskrift”, a yearly plan with a one-week free trial). Manage or cancel it anytime in
+  the App Store → your account → Subscriptions.</p>
+  <p><strong>I already paid but the app is locked.</strong> Open Settings and choose
+  <strong>Restore Purchases</strong> while signed in to the same Apple Account you subscribed with.</p>
+  <p><strong>Can I switch the language?</strong> Yes — set the interface and invoice languages
+  separately (Icelandic / English) in <strong>Settings → Language</strong>.</p>
+  <p><strong>Can I keep more than one company?</strong> Yes — each company keeps its own invoice
+  numbering, customers, and invoices; switch between them at any time.</p>
+
+  <h2>Contact</h2>
+  <p>Need help, found a bug, or have a suggestion? Email
+  <a class="mail" href="mailto:nordnordvestur@gmail.com">nordnordvestur@gmail.com</a> and we'll
+  get back to you.</p>
+
+  <p><a href="https://github.com/nnv-ark/kula-invoicing/blob/main/PRIVACY.md">Privacy Policy →</a></p>
+
+  <footer>© NNV ehf. · Reykjavík, Ísland</footer>
+</div>
+</body>
+</html>
