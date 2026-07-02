@@ -151,30 +151,35 @@
   footer {
     position: fixed;
     inset: auto clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     font-size: 0.7rem;
     letter-spacing: 0.14em;
     color: var(--ink-soft);
     user-select: none;
   }
 
-  footer .coords { justify-self: start; }
-  footer .bearing { justify-self: end; }
+  /* ——— the apps, a quiet column beneath the mark ——— */
 
-  /* ——— the apps, resting on the bottom edge ——— */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 5vh, 3rem);
+  }
 
   .apps {
-    justify-self: center;
     display: flex;
-    gap: clamp(0.8rem, 2vw, 1.4rem);
+    flex-direction: column;
+    gap: clamp(0.7rem, 1.6vh, 1rem);
   }
 
   .apps a {
+    position: relative;
     display: block;
-    width: clamp(2.1rem, 4.5vw, 2.6rem);
-    height: clamp(2.1rem, 4.5vw, 2.6rem);
+    width: clamp(2rem, 4.5vh, 2.4rem);
+    height: clamp(2rem, 4.5vh, 2.4rem);
   }
 
   .apps img {
@@ -189,18 +194,33 @@
 
   .apps a:hover img,
   .apps a:focus-visible img {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(33, 31, 26, 0.18);
+    transform: scale(1.12);
+    box-shadow: 0 6px 16px rgba(33, 31, 26, 0.18);
   }
 
-  @media (max-width: 560px) {
-    footer {
-      grid-template-columns: auto auto;
-      row-gap: 1.1rem;
-    }
-    .apps { grid-column: 1 / -1; grid-row: 1; }
-    footer .coords { grid-row: 2; }
-    footer .bearing { grid-row: 2; }
+  /* name appears beside the icon on hover */
+  .apps .app-name {
+    position: absolute;
+    left: calc(100% + 1.1em);
+    top: 50%;
+    transform: translateY(-50%) translateX(-6px);
+    white-space: nowrap;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease,
+                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .apps a:hover .app-name,
+  .apps a:focus-visible .app-name {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    transition-delay: 0.05s;
   }
 
   /* nord-nord-vestur: 337.5° — the needle holds the bearing */
@@ -227,9 +247,17 @@
 <body>
 
 <main>
-  <button class="mark" aria-expanded="false" aria-controls="contact" aria-label="Norðnorðvestur — sýna tengiliðaupplýsingar">
-    <span>N</span><span>N</span><span>V</span>
-  </button>
+  <div class="stack">
+    <button class="mark" aria-expanded="false" aria-controls="contact" aria-label="Norðnorðvestur — sýna tengiliðaupplýsingar">
+      <span>N</span><span>N</span><span>V</span>
+    </button>
+    <nav class="apps" aria-label="Apps">
+      <a href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
+      <a href="https://apps.apple.com/is/app/klukk/id6771493324"><img src="icons/klukk.png" alt="KLUKK!"><span class="app-name">KLUKK!</span></a>
+      <a href="https://apps.apple.com/is/app/bill-to-book/id6777167648"><img src="icons/billtobook.png" alt="Bill To Book"><span class="app-name">Bill To Book</span></a>
+      <a href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
+    </nav>
+  </div>
 </main>
 
 <aside class="contact" id="contact">
@@ -240,12 +268,6 @@
 
 <footer>
   <span class="coords">64°08′N 21°56′V</span>
-  <nav class="apps" aria-label="Apps">
-    <a href="https://apps.apple.com/is/app/rukk/id6777342177" title="RUKK — App Store"><img src="icons/rukk.png" alt="RUKK"></a>
-    <a href="https://apps.apple.com/is/app/klukk/id6771493324" title="KLUKK! — App Store"><img src="icons/klukk.png" alt="KLUKK!"></a>
-    <a href="https://apps.apple.com/is/app/bill-to-book/id6777167648" title="Bill To Book — App Store"><img src="icons/billtobook.png" alt="Bill To Book"></a>
-    <a href="https://apps.apple.com/is/app/clock24h/id6780316600" title="Clock24h — App Store"><img src="icons/clock24h.png" alt="Clock24h"></a>
-  </nav>
   <span class="bearing">
     <svg viewBox="0 0 10 10" aria-hidden="true">
       <line x1="5" y1="9" x2="5" y2="2.5"/>
