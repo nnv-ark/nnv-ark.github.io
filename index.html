@@ -119,8 +119,7 @@
     pointer-events: none;
   }
 
-  body:has(.mark:hover) .contact,
-  body:has(.mark.open) .contact {
+  .contact.show {
     pointer-events: auto;
     animation: contact-cycle 7.5s ease forwards;
   }
@@ -225,8 +224,7 @@
                 transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .apps a:hover .app-name,
-  .apps a:focus-visible .app-name {
+  .apps a.show .app-name {
     animation: name-cycle 7.5s ease forwards;
   }
 
@@ -293,14 +291,32 @@
 </footer>
 
 <script>
-  // touch devices have no hover — a tap on the mark toggles the contact card
-  const mark = document.querySelector(".mark");
-  if (window.matchMedia("(hover: none)").matches) {
-    mark.addEventListener("click", () => {
-      const open = mark.classList.toggle("open");
-      mark.setAttribute("aria-expanded", open);
-    });
+  // one full reveal cycle (in → hold 5s → fade 2s) per trigger;
+  // runs to completion even if the pointer moves away, restartable on re-entry
+  function cycle(el) {
+    el.classList.remove("show");
+    void el.offsetWidth; // restart the animation
+    el.classList.add("show");
   }
+
+  const mark = document.querySelector(".mark");
+  const contact = document.querySelector(".contact");
+
+  ["pointerenter", "click", "focus"].forEach(ev =>
+    mark.addEventListener(ev, () => {
+      cycle(contact);
+      mark.setAttribute("aria-expanded", "true");
+    })
+  );
+  contact.addEventListener("animationend", () => {
+    contact.classList.remove("show");
+    mark.setAttribute("aria-expanded", "false");
+  });
+
+  document.querySelectorAll(".apps a").forEach(a => {
+    ["pointerenter", "focus"].forEach(ev => a.addEventListener(ev, () => cycle(a)));
+    a.querySelector(".app-name").addEventListener("animationend", () => a.classList.remove("show"));
+  });
 </script>
 
 </body>
