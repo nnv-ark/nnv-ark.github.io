@@ -121,10 +121,16 @@
 
   body:has(.mark:hover) .contact,
   body:has(.mark.open) .contact {
-    opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
-    transition-delay: 0.15s;
+    animation: contact-cycle 7.5s ease forwards;
+  }
+
+  /* appear, hold 5s, fade out over 2s */
+  @keyframes contact-cycle {
+    0%     { opacity: 0; transform: translateY(-0.4rem); }
+    6.67%  { opacity: 1; transform: translateY(0); }
+    73.33% { opacity: 1; transform: translateY(0); }
+    100%   { opacity: 0; transform: translateY(0); }
   }
 
   .contact .name {
@@ -221,9 +227,15 @@
 
   .apps a:hover .app-name,
   .apps a:focus-visible .app-name {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-    transition-delay: 0.05s;
+    animation: name-cycle 7.5s ease forwards;
+  }
+
+  /* appear, hold 5s, fade out over 2s */
+  @keyframes name-cycle {
+    0%     { opacity: 0; transform: translateY(-50%) translateX(-6px); }
+    6.67%  { opacity: 1; transform: translateY(-50%) translateX(0); }
+    73.33% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    100%   { opacity: 0; transform: translateY(-50%) translateX(0); }
   }
 
   /* nord-nord-vestur: 337.5° — the needle holds the bearing */
