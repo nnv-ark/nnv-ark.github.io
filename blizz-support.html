@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BLIZZ — Support</title>
+<meta name="description" content="Support for the BLIZZ macOS time-tracking, reports & estimates app by NNV ehf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#f7f4ed; --ink:#211f1a; --ink-soft:#6e6a60; --hairline:#d9d4c8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.65;
+  }
+  .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
+  a.home { display:inline-block; text-decoration:none; color:var(--ink); font-weight:500;
+           letter-spacing:0.18em; text-transform:uppercase; font-size:0.78rem; margin-bottom:2.5rem;
+           border-bottom:1px solid var(--hairline); padding-bottom:2px; }
+  h1 { font-weight:500; font-size:clamp(1.9rem,5vw,2.6rem); letter-spacing:0.01em; line-height:1.1; }
+  .lead { color:var(--ink-soft); font-size:1.05rem; margin:0.8rem 0 2.2rem; }
+  h2 { font-weight:500; font-size:1.15rem; margin:2rem 0 0.5rem; }
+  p { margin:0.6rem 0; color:#332f28; }
+  ul { margin:0.6rem 0 0.6rem 1.2rem; color:#332f28; }
+  li { margin:0.3rem 0; }
+  a { color:var(--ink); }
+  .mail { font-weight:500; }
+  footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
+           color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="home" href="/">← Norðnorðvestur</a>
+  <h1>BLIZZ — Support</h1>
+  <p class="lead">A native macOS app for tracking billable time and turning it into clean reports and estimates — a modern rebuild of iBiz.</p>
+
+  <h2>Getting started</h2>
+  <ul>
+    <li>Add a <strong>client</strong> (or import one from Contacts), then create a <strong>project</strong> under it.</li>
+    <li>Break the project into <strong>tasks</strong>, and log work as <strong>job events</strong> —
+        type them in by hand or run the floating <strong>Quick Timer</strong> stopwatch.</li>
+    <li>Mark work <strong>billed</strong> as you go; the reports and unbilled totals key off that flag.</li>
+    <li>Open <strong>Reports</strong> for time, earnings, client and project summaries, and VSK/tax
+        breakdowns — export any of them as a PDF sheet or CSV.</li>
+    <li>Generate <strong>estimates</strong> and <strong>statements</strong> as polished A4 PDFs, and
+        share them via Mail, Messages or AirDrop.</li>
+  </ul>
+
+  <h2>Working with your other apps</h2>
+  <ul>
+    <li><strong>Calendar &amp; Reminders.</strong> Link a project to a calendar so events sync in as
+        job events, add job events to Calendar, or push project to-dos to Reminders. Access is
+        requested the first time and can be changed in System Settings → Privacy &amp; Security.</li>
+    <li><strong>File Cabinet.</strong> Connect a project to a work folder and BLIZZ tracks the files
+        inside it, with live updates.</li>
+    <li><strong>Self-hosted data folder.</strong> Point BLIZZ at a folder of your choice (for example
+        inside a synced folder like Dropbox); your data is mirrored there as plain JSON and re-imported
+        at launch, so you can keep it on your own storage.</li>
+    <li><strong>Hand off to RUKK.</strong> Export a project's billable time for invoicing in RUKK.</li>
+  </ul>
+
+  <h2>Common questions</h2>
+  <p><strong>Where is my data stored?</strong> Locally on your Mac, in BLIZZ's own database — plus,
+  if you enable it, mirrored as JSON to the data folder you choose. Nothing is sent to us.</p>
+  <p><strong>How do I back up?</strong> Use <strong>File → Back Up All Data</strong> to write a full
+  JSON backup, and <strong>Restore from Backup</strong> to bring it back.</p>
+  <p><strong>Can I change the tax rate?</strong> Yes — set the default VSK/VAT percent and invoice
+  numbering in <strong>Settings</strong>; company details there appear on your PDFs.</p>
+
+  <h2>Contact</h2>
+  <p>Need help, found a bug, or have a suggestion? Email
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> and we'll
+  get back to you.</p>
+
+  <p><a href="/blizz-privacy.html">Privacy Policy →</a></p>
+
+  <footer>© 2026 NNV ehf. · Reykjavík, Ísland</footer>
+</div>
+</body>
+</html>
