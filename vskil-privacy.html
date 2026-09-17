@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSKIL — Privacy Policy</title>
+<meta name="description" content="Privacy policy for the VSKIL macOS app by NNV ehf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#f7f4ed; --ink:#211f1a; --ink-soft:#6e6a60; --hairline:#d9d4c8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.65;
+  }
+  .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
+  a.home { display:inline-block; text-decoration:none; color:var(--ink); font-weight:500;
+           letter-spacing:0.18em; text-transform:uppercase; font-size:0.78rem; margin-bottom:2.5rem;
+           border-bottom:1px solid var(--hairline); padding-bottom:2px; }
+  h1 { font-weight:500; font-size:clamp(1.9rem,5vw,2.6rem); letter-spacing:0.01em; line-height:1.1; }
+  .updated { color:var(--ink-soft); font-size:0.85rem; letter-spacing:0.04em; margin:0.6rem 0 2.2rem; }
+  h2 { font-weight:500; font-size:1.15rem; margin:2rem 0 0.5rem; }
+  p { margin:0.6rem 0; color:#332f28; }
+  ul { margin:0.6rem 0 0.6rem 1.2rem; color:#332f28; }
+  li { margin:0.3rem 0; }
+  .lead { font-size:1.1rem; }
+  a { color:var(--ink); }
+  footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
+           color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="home" href="/">← Norðnorðvestur</a>
+  <h1>VSKIL — Privacy Policy</h1>
+  <p class="updated">Last updated: 17 September 2026</p>
+
+  <p class="lead">VSKIL is designed to keep your business data on your own Mac. We do not
+  run servers that receive your data, and we do not collect, store, sell, or share any personal
+  information.</p>
+
+  <h2>What the app does with your data</h2>
+  <p>VSKIL prepares Icelandic VAT returns (VSK) from the sales and purchase entries you type
+  in. When — and only when — you press <strong>Skila VSK</strong>, the report is sent directly
+  from your Mac to the official web service of the Icelandic tax authority,
+  Ríkisskattstjóri, over encrypted HTTPS. The report contains your company's kennitala,
+  VAT number and the amounts of the period, authenticated with your own web key
+  (veflykill). The data travels between you and the tax authority only. We never see it.</p>
+
+  <h2>Information we do not collect</h2>
+  <ul>
+    <li>No account or sign-in is required.</li>
+    <li>No analytics, advertising, or tracking technologies are used.</li>
+    <li>No invoice data, kennitala, VAT numbers, or web keys are ever sent to NNV ehf. or
+        any third party.</li>
+    <li>We do not use third-party data collection SDKs.</li>
+  </ul>
+
+  <h2>Information stored on your device</h2>
+  <p>Company names, kennitala, VAT numbers, invoice entries, and filed amounts are stored
+  locally on your Mac so the app can work. If you use the FELAG company register, the app
+  reads the shared <em>companies.xml</em> file directly from its folder on your Mac after you
+  grant access once — the file never leaves your device. All of this information stays on
+  your Mac (and in your own backups, if you make them) and is removed when you delete the
+  app and its data.</p>
+
+  <h2>The web key (veflykill)</h2>
+  <p>Your web key from Ríkisskattstjóri is stored in the macOS Keychain, the operating
+  system's encrypted credential store — never in the app's data files. It is used solely to
+  authenticate your submissions to the tax authority's web service.</p>
+
+  <h2>Ríkisskattstjóri's web service</h2>
+  <p>Filing a VAT return connects you to a service operated by the Icelandic tax authority
+  using your own credentials. How the tax authority processes the data you submit is
+  governed by their own terms and privacy practices.</p>
+
+  <h2>Children's privacy</h2>
+  <p>VSKIL is not directed at children and does not knowingly collect any information from
+  anyone.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be posted on this page with a new
+  "Last updated" date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? Email
+  <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="/">Support →</a></p>
+
+  <footer>© NNV ehf. · Reykjavík, Ísland</footer>
+</div>
+</body>
+</html>
