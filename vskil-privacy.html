@@ -28,6 +28,10 @@
   li { margin:0.3rem 0; }
   .lead { font-size:1.1rem; }
   a { color:var(--ink); }
+  nav.langs { margin-bottom:2rem; font-size:0.85rem; letter-spacing:0.06em; }
+  nav.langs a { text-decoration:none; border-bottom:1px solid var(--hairline); padding-bottom:1px; }
+  nav.langs span { color:var(--ink-soft); margin:0 0.4rem; }
+  hr.lang-skilm { border:0; border-top:1px solid var(--hairline); margin:3rem 0; }
   footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
            color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
 </style>
@@ -35,6 +39,8 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
+  <nav class="langs"><a href="#en">English</a><span>·</span><a href="#pl">Polski</a></nav>
+  <section id="en" lang="en">
   <h1>VSKIL — Privacy Policy</h1>
   <p class="updated">Last updated: 17 September 2026</p>
 
@@ -90,6 +96,70 @@
   <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
 
   <p><a href="/">Support →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="pl" lang="pl">
+  <h1>VSKIL — Polityka prywatności</h1>
+  <p class="updated">Ostatnia aktualizacja: 17 września 2026</p>
+
+  <p class="lead">VSKIL został zaprojektowany tak, aby dane Twojej firmy pozostawały na Twoim
+  Macu. Nie prowadzimy serwerów, które odbierałyby Twoje dane, i nie zbieramy, nie
+  przechowujemy, nie sprzedajemy ani nie udostępniamy żadnych danych osobowych.</p>
+
+  <h2>Co aplikacja robi z Twoimi danymi</h2>
+  <p>VSKIL przygotowuje islandzkie deklaracje VAT (VSK) na podstawie wprowadzonych przez
+  Ciebie wpisów sprzedaży i zakupu. Dopiero gdy naciśniesz <strong>Skila VSK</strong>,
+  raport jest wysyłany bezpośrednio z Twojego Maca do oficjalnej usługi internetowej
+  islandzkiej administracji skarbowej, Ríkisskattstjóri, szyfrowanym połączeniem HTTPS.
+  Raport zawiera kennitalę Twojej firmy, numer VAT i kwoty za dany okres, uwierzytelnione
+  Twoim własnym kluczem internetowym (veflykill). Dane przesyłane są wyłącznie między
+  Tobą a administracją skarbową. My nigdy ich nie widzimy.</p>
+
+  <h2>Informacje, których nie zbieramy</h2>
+  <ul>
+    <li>Nie jest wymagane żadne konto ani logowanie.</li>
+    <li>Nie stosujemy analityki, reklam ani technologii śledzących.</li>
+    <li>Żadne dane faktur, kennitali, numery VAT ani klucze internetowe nie są wysyłane do
+        NNV ehf. ani do osób trzecich.</li>
+    <li>Nie używamy zewnętrznych pakietów SDK zbierających dane.</li>
+  </ul>
+
+  <h2>Informacje przechowywane na Twoim urządzeniu</h2>
+  <p>Nazwy firm, kennitali, numery VAT, wpisy faktur i złożone kwoty są przechowywane
+  lokalnie na Twoim Macu, aby aplikacja mogła działać. Jeśli korzystasz z rejestru firm
+  FELAG, aplikacja odczytuje wspólny plik <em>companies.xml</em> bezpośrednio z jego
+  folderu na Twoim Macu po jednorazowym udzieleniu dostępu — plik nigdy nie opuszcza
+  urządzenia. Wszystkie te informacje pozostają na Twoim Macu (oraz w Twoich własnych
+  kopiach zapasowych, jeśli je tworzysz) i są usuwane po usunięciu aplikacji wraz z jej
+  danymi.</p>
+
+  <h2>Klucz internetowy (veflykill)</h2>
+  <p>Twój klucz internetowy od Ríkisskattstjóri jest przechowywany w Pęku kluczy macOS —
+  zaszyfrowanym magazynie poświadczeń systemu operacyjnego — a nigdy w plikach danych
+  aplikacji. Służy wyłącznie do uwierzytelniania Twoich zgłoszeń w usłudze internetowej
+  administracji skarbowej.</p>
+
+  <h2>Usługa internetowa Ríkisskattstjóri</h2>
+  <p>Złożenie deklaracji VAT łączy Cię z usługą prowadzoną przez islandzką administrację
+  skarbową przy użyciu Twoich własnych poświadczeń. Sposób przetwarzania przesyłanych
+  danych przez administrację skarbową regulują jej własne warunki i zasady prywatności.</p>
+
+  <h2>Prywatność dzieci</h2>
+  <p>VSKIL nie jest skierowany do dzieci i świadomie nie zbiera żadnych informacji od
+  nikogo.</p>
+
+  <h2>Zmiany niniejszej polityki</h2>
+  <p>W przypadku zmiany niniejszej polityki zaktualizowana wersja zostanie opublikowana na
+  tej stronie z nową datą „Ostatnia aktualizacja".</p>
+
+  <h2>Kontakt</h2>
+  <p>Pytania dotyczące prywatności? Napisz na adres
+  <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="/">Wsparcie →</a></p>
+  </section>
 
   <footer>© NNV ehf. · Reykjavík, Ísland</footer>
 </div>
