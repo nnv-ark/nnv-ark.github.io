@@ -40,8 +40,9 @@
     --ink-soft: #6e6a60;
     --hairline: #d9d4c8;
 
-    /* the grid — one square cell per app, per letter, per cross */
-    --cell: clamp(3.75rem, 9vw, 7rem);
+    /* the grid — one square cell per app, per letter, per cross;
+       never taller than the window allows for the board's seven rows */
+    --cell: min(clamp(3.75rem, 9vw, 7rem), calc((100dvh - 7rem) / 7));
     --icon: clamp(2rem, calc(var(--cell) * 0.4), 2.6rem);
   }
 
@@ -105,52 +106,49 @@
     place-items: center;
   }
 
-  /* three columns; row 1 the mark, row 2 air, rows 3–6 the apps */
+  /* three columns; rows 1–2 the mark, row 3 air, rows 4–7 the apps */
   .board {
     display: grid;
     grid-template-columns: repeat(3, var(--cell));
-    grid-template-rows: repeat(6, var(--cell));
+    grid-template-rows: repeat(7, var(--cell));
   }
 
-  /* ——— the mark, one letter per column ——— */
+  /* ——— the mark: the NNV logo, one letter per column, the pair of rows
+     it stands in shared evenly above and below ——— */
 
   .mark {
     grid-column: 1 / 4;
-    grid-row: 1;
+    grid-row: 1 / 3;
     display: grid;
     grid-template-columns: repeat(3, var(--cell));
+    place-items: center;
     border: 0;
     background: none;
     cursor: default;
-    font: inherit;
     color: var(--ink);
-    font-weight: 500;
-    font-size: calc(var(--cell) * 1.18);
-    line-height: var(--cell);
     user-select: none;
     animation: settle 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  /* each letter's ink is centred on its cell's centre point — the offsets
-     --dx/--dy are measured from the actual glyph shapes in the script below */
-  .mark span {
+  /* at this height the logo's own letter pitch equals one cell exactly,
+     so every letter lands centred in its column */
+  .mark svg {
     display: block;
-    text-align: center;
-    --dx: 0px;
-    --dy: 0px;
-    --breathe: 0em;
-    transform: translate(calc(var(--dx) + var(--breathe)), var(--dy));
+    height: calc(var(--cell) * 1.62);
+    width: auto;
+    fill: currentColor;
+    overflow: visible;
     transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* on hover the letters breathe apart — generous, unhurried */
-  .mark:hover span:nth-child(1),
-  .mark.open span:nth-child(1) { --breathe: -0.06em; }
-  .mark:hover span:nth-child(3),
-  .mark.open span:nth-child(3) { --breathe: 0.06em; }
+  .mark:hover svg:nth-child(1),
+  .mark.open svg:nth-child(1) { transform: translateX(calc(var(--cell) * -0.07)); }
+  .mark:hover svg:nth-child(3),
+  .mark.open svg:nth-child(3) { transform: translateX(calc(var(--cell) * 0.07)); }
 
   @keyframes settle {
-    from { opacity: 0; transform: translateY(0.15em); }
+    from { opacity: 0; transform: translateY(calc(var(--cell) * 0.15)); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
@@ -324,7 +322,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .mark, .crosses { animation: none; }
-    .mark span, .contact { transition: none; }
+    .mark svg, .contact { transition: none; }
   }
 </style>
 </head>
@@ -335,25 +333,27 @@
 <main>
   <div class="board">
     <button class="mark" data-cell aria-expanded="false" aria-controls="contact" aria-label="Norðnorðvestur — sýna tengiliðaupplýsingar">
-      <span>N</span><span>N</span><span>V</span>
+      <svg viewBox="0 0 641 1316" aria-hidden="true"><path d="M0 0H122L508.5 935H511V0H641V1316H518L132.5 381H129V1316H0Z"/></svg>
+      <svg viewBox="0 0 641 1316" aria-hidden="true"><path d="M0 0H122L508.5 935H511V0H641V1316H518L132.5 381H129V1316H0Z"/></svg>
+      <svg viewBox="0 0 666 1316" aria-hidden="true"><path d="M0 0H148L534 935H537V0H666V1316H543Z"/></svg>
     </button>
 
     <nav style="display:contents" aria-label="Apps">
       <!-- column 1 -->
-      <a class="app" style="grid-area:3/1" href="https://apps.apple.com/is/app/klukk/id6771493324"><img src="icons/klukk.png" alt="KLUKK!"><span class="app-name">KLUKK!</span></a>
-      <a class="app" style="grid-area:4/1" href="https://apps.apple.com/is/app/bill-to-book/id6777167648"><img src="icons/billtobook.png" alt="Bill To Book"><span class="app-name">Bill To Book</span></a>
-      <a class="app round" style="grid-area:5/1" href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
+      <a class="app" style="grid-area:4/1" href="https://apps.apple.com/is/app/klukk/id6771493324"><img src="icons/klukk.png" alt="KLUKK!"><span class="app-name">KLUKK!</span></a>
+      <a class="app" style="grid-area:5/1" href="https://apps.apple.com/is/app/bill-to-book/id6777167648"><img src="icons/billtobook.png" alt="Bill To Book"><span class="app-name">Bill To Book</span></a>
+      <a class="app round" style="grid-area:6/1" href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
 
       <!-- column 2 -->
       <!-- in App Review for the first time — swap .soon <span>s for an <a> with the store link once live -->
-      <span class="app soon" style="grid-area:3/2" tabindex="0" aria-label="FELAG — væntanlegt"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small>væntanlegt</small></span></span>
-      <a class="app" style="grid-area:4/2" href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
-      <a class="app" style="grid-area:5/2" href="https://apps.apple.com/is/app/blizz/id6788556730"><img src="icons/blizz.png" alt="BLIZZ"><span class="app-name">BLIZZ</span></a>
-      <span class="app soon" style="grid-area:6/2" tabindex="0" aria-label="VSKiL — væntanlegt"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></span>
+      <span class="app soon" style="grid-area:4/2" tabindex="0" aria-label="FELAG — væntanlegt"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small>væntanlegt</small></span></span>
+      <a class="app" style="grid-area:5/2" href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
+      <a class="app" style="grid-area:6/2" href="https://apps.apple.com/is/app/blizz/id6788556730"><img src="icons/blizz.png" alt="BLIZZ"><span class="app-name">BLIZZ</span></a>
+      <span class="app soon" style="grid-area:7/2" tabindex="0" aria-label="VSKiL — væntanlegt"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></span>
 
       <!-- column 3 -->
-      <a class="app" style="grid-area:3/3" href="https://apps.apple.com/is/app/rodini/id6780505872"><img src="icons/rodini.png" alt="RODINI"><span class="app-name">RODINI</span></a>
-      <span class="app soon" style="grid-area:4/3" tabindex="0" aria-label="SKRIBB — væntanlegt"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small>væntanlegt</small></span></span>
+      <a class="app" style="grid-area:4/3" href="https://apps.apple.com/is/app/rodini/id6780505872"><img src="icons/rodini.png" alt="RODINI"><span class="app-name">RODINI</span></a>
+      <span class="app soon" style="grid-area:5/3" tabindex="0" aria-label="SKRIBB — væntanlegt"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small>væntanlegt</small></span></span>
     </nav>
   </div>
 </main>
@@ -418,7 +418,7 @@
 
     const taken = new Set();
     const key = (c, r) => c + "," + r;
-    [0, 1, 2].forEach(c => taken.add(key(c, 0)));              // N N V
+    [0, 1, 2].forEach(c => { taken.add(key(c, 0)); taken.add(key(c, 1)); });   // the logo
     board.querySelectorAll(".app").forEach(a => {
       const r = a.getBoundingClientRect();
       taken.add(key(Math.round((r.left - b.left) / cell), Math.round((r.top - b.top) / cell)));
@@ -448,49 +448,12 @@
     crosses.replaceChildren(frag);
   }
 
-  // ——— centre each letter's ink on its cell ———
-  // side bearings and baseline differ per glyph, so measure the real shapes
-  const probe = document.createElement("canvas").getContext("2d");
-  function centreLetters() {
-    const cs = getComputedStyle(mark);
-    probe.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
-    probe.textBaseline = "alphabetic";
-    mark.querySelectorAll("span").forEach(s => {
-      s.style.setProperty("--dx", "0px");
-      s.style.setProperty("--dy", "0px");
-      const m = probe.measureText(s.textContent);
-      // horizontal: ink centre vs. advance centre
-      const inkMid = (m.actualBoundingBoxRight - m.actualBoundingBoxLeft) / 2;
-      const dx = m.width / 2 - inkMid;
-      // vertical: baseline measured relative to the span itself, so any
-      // transform in play (the entrance animation) cancels out
-      const box = s.getBoundingClientRect();
-      const baseline = baselineOf(s) - box.top;
-      const inkCentreY = baseline - m.actualBoundingBoxAscent / 2;
-      const dy = box.height / 2 - inkCentreY;
-      s.style.setProperty("--dx", dx.toFixed(2) + "px");
-      s.style.setProperty("--dy", dy.toFixed(2) + "px");
-    });
-  }
-  // baseline of a text line = bottom of an inline-block of zero height placed in it
-  function baselineOf(el) {
-    const b = document.createElement("span");
-    b.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
-    el.appendChild(b);
-    const y = b.getBoundingClientRect().top;
-    b.remove();
-    return y;
-  }
-
-  function layout() { centreLetters(); drawCrosses(); }
-
   let pending;
   addEventListener("resize", () => {
     cancelAnimationFrame(pending);
-    pending = requestAnimationFrame(layout);
+    pending = requestAnimationFrame(drawCrosses);
   });
-  layout();
-  document.fonts && document.fonts.ready.then(layout);
+  drawCrosses();
 </script>
 
 </body>
