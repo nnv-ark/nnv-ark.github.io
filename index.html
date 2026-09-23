@@ -39,6 +39,10 @@
     --ink: #211f1a;
     --ink-soft: #6e6a60;
     --hairline: #d9d4c8;
+
+    /* the grid — one square cell per app, per letter, per cross */
+    --cell: clamp(3.75rem, 9vw, 7rem);
+    --icon: clamp(2rem, calc(var(--cell) * 0.4), 2.6rem);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -63,38 +67,87 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
+  /* ——— the crosses: every empty cell, edge to edge — room for what's next ——— */
+
+  .crosses {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    animation: fade-in 1.2s ease both;
+  }
+  .crosses i {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+  }
+  .crosses i::before,
+  .crosses i::after {
+    content: "";
+    position: absolute;
+    background: #8c8577;   /* dark enough to hold its own at hairline weight */
+  }
+  .crosses i::before { left: 0; right: 0; top: calc(50% - 0.5px); height: 1px; }
+  .crosses i::after  { top: 0; bottom: 0; left: calc(50% - 0.5px); width: 1px; }
+
+  /* on retina screens, finer than a device pixel */
+  @media (min-resolution: 2dppx) {
+    .crosses i::before { transform: scaleY(0.35); }
+    .crosses i::after  { transform: scaleX(0.35); }
+  }
+
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
   main {
+    position: relative;
     height: 100dvh;
     display: grid;
     place-items: center;
   }
 
-  /* ——— the mark ——— */
+  /* three columns; row 1 the mark, row 2 air, rows 3–6 the apps */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell));
+    grid-template-rows: repeat(6, var(--cell));
+  }
+
+  /* ——— the mark, one letter per column ——— */
 
   .mark {
-    display: flex;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell));
     border: 0;
     background: none;
     cursor: default;
     font: inherit;
     color: var(--ink);
     font-weight: 500;
-    font-size: clamp(5rem, 18vw, 13rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
+    font-size: calc(var(--cell) * 1.18);
+    line-height: var(--cell);
     user-select: none;
     animation: settle 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
+  /* each letter's ink is centred on its cell's centre point — the offsets
+     --dx/--dy are measured from the actual glyph shapes in the script below */
   .mark span {
+    display: block;
+    text-align: center;
+    --dx: 0px;
+    --dy: 0px;
+    --breathe: 0em;
+    transform: translate(calc(var(--dx) + var(--breathe)), var(--dy));
     transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* on hover the letters breathe apart — generous, unhurried */
   .mark:hover span:nth-child(1),
-  .mark.open span:nth-child(1) { transform: translateX(-0.06em); }
+  .mark.open span:nth-child(1) { --breathe: -0.06em; }
   .mark:hover span:nth-child(3),
-  .mark.open span:nth-child(3) { transform: translateX(0.06em); }
+  .mark.open span:nth-child(3) { --breathe: 0.06em; }
 
   @keyframes settle {
     from { opacity: 0; transform: translateY(0.15em); }
@@ -113,10 +166,13 @@
     letter-spacing: 0.06em;
     line-height: 2;
     color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 0 0 0.6rem var(--paper);
     opacity: 0;
     transform: translateY(-0.4rem);
     transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
+    z-index: 2;
   }
 
   .contact.show {
@@ -165,86 +221,90 @@
     user-select: none;
   }
 
-  /* ——— the apps, a quiet column beneath the mark ——— */
+  /* ——— the apps, each centred in its own cell ——— */
 
-  .stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(1.5rem, 5vh, 3rem);
-  }
-
-  /* two columns, three apps each — filled top-to-bottom, then across */
-  .apps {
+  .app {
+    position: relative;
     display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(3, auto);
-    column-gap: clamp(1.75rem, 5vw, 3.5rem);
-    row-gap: clamp(0.7rem, 1.6vh, 1rem);
-  }
-
-  /* the name sits in the flow beside the icon, so its width is always
-     reserved — it fades in on hover without shifting anything */
-  .apps a {
-    display: flex;
-    align-items: center;
-    gap: 1.1em;
+    place-items: center;
     text-decoration: none;
+    color: var(--ink);
+    outline-offset: -0.5rem;
   }
 
-  .apps img {
+  .app img {
     display: block;
-    flex: none;
-    width: clamp(2rem, 4.5vh, 2.4rem);
-    height: clamp(2rem, 4.5vh, 2.4rem);
+    width: var(--icon);
+    height: var(--icon);
     border-radius: 24%;
     box-shadow: 0 1px 3px rgba(33, 31, 26, 0.14);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.5s ease;
+                box-shadow 0.5s ease, opacity 0.5s ease;
   }
 
   /* watch app — circular, like the watch face it is */
-  .apps a.round img { border-radius: 50%; }
+  .app.round img { border-radius: 50%; }
 
-  .apps a:hover img,
-  .apps a:focus-visible img {
-    transform: scale(1.12);
+  /* over an icon the pointer steps aside and the icon comes forward */
+  .app img:hover { cursor: none; }
+
+  .app img:hover,
+  .app:focus-visible img {
+    transform: scale(1.15);
     box-shadow: 0 6px 16px rgba(33, 31, 26, 0.18);
   }
 
-  /* name appears beside the icon on hover */
-  .apps .app-name {
+  /* the name surfaces just beneath the icon, floating over the grid */
+  .app-name {
+    position: absolute;
+    top: calc(50% + var(--icon) / 2 + 0.6rem);
+    left: 50%;
     white-space: nowrap;
-    font-size: 0.72rem;
+    text-align: center;
+    font-size: 0.66rem;
     font-weight: 500;
     letter-spacing: 0.18em;
+    line-height: 1.5;
     text-transform: uppercase;
-    color: var(--ink);
+    background: var(--paper);
+    padding: 0 0.35em 0 0.53em;   /* balances the trailing letter-spacing */
     opacity: 0;
-    transform: translateX(-6px);
+    transform: translate(calc(-50% - 6px), 0);
     pointer-events: none;
-    transition: opacity 0.45s ease,
-                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
   }
 
-  .apps a.show .app-name {
+  .app.show .app-name {
     animation: name-cycle 7.5s ease forwards;
   }
 
-  /* appear, hold 5s, fade out over 2s */
+  /* same as ever: slide in, hold 5s, fade out over 2s — now beneath the icon */
   @keyframes name-cycle {
-    0%     { opacity: 0; transform: translateX(-6px); }
-    6.67%  { opacity: 1; transform: translateX(0); }
-    73.33% { opacity: 1; transform: translateX(0); }
-    100%   { opacity: 0; transform: translateX(0); }
+    0%     { opacity: 0; transform: translate(calc(-50% - 6px), 0); }
+    6.67%  { opacity: 1; transform: translate(-50%, 0); }
+    73.33% { opacity: 1; transform: translate(-50%, 0); }
+    100%   { opacity: 0; transform: translate(-50%, 0); }
   }
 
-  /* one column when there isn't room for two names side by side */
-  @media (max-width: 560px) {
-    .apps {
-      grid-auto-flow: row;
-      grid-template-rows: none;
-    }
+  /* not yet on the store — in review, drawn in pencil */
+  .soon { cursor: default; }
+  .soon img {
+    filter: grayscale(1) contrast(0.85);
+    opacity: 0.38;
+    box-shadow: none;
+  }
+  .soon img:hover,
+  .soon:focus-visible img {
+    opacity: 0.55;
+    box-shadow: 0 4px 12px rgba(33, 31, 26, 0.10);
+  }
+  .soon .app-name { color: var(--ink-soft); }
+  .soon .app-name small {
+    display: block;
+    font-size: inherit;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
   }
 
   /* nord-nord-vestur: 337.5° — the needle holds the bearing */
@@ -263,25 +323,37 @@
   .bearing path { fill: var(--ink-soft); }
 
   @media (prefers-reduced-motion: reduce) {
-    .mark { animation: none; }
+    .mark, .crosses { animation: none; }
     .mark span, .contact { transition: none; }
   }
 </style>
 </head>
 <body>
 
+<div class="crosses" aria-hidden="true"></div>
+
 <main>
-  <div class="stack">
-    <button class="mark" aria-expanded="false" aria-controls="contact" aria-label="Norðnorðvestur — sýna tengiliðaupplýsingar">
+  <div class="board">
+    <button class="mark" data-cell aria-expanded="false" aria-controls="contact" aria-label="Norðnorðvestur — sýna tengiliðaupplýsingar">
       <span>N</span><span>N</span><span>V</span>
     </button>
-    <nav class="apps" aria-label="Apps">
-      <a href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
-      <a href="https://apps.apple.com/is/app/klukk/id6771493324"><img src="icons/klukk.png" alt="KLUKK!"><span class="app-name">KLUKK!</span></a>
-      <a href="https://apps.apple.com/is/app/bill-to-book/id6777167648"><img src="icons/billtobook.png" alt="Bill To Book"><span class="app-name">Bill To Book</span></a>
-      <a href="https://apps.apple.com/is/app/blizz/id6788556730"><img src="icons/blizz.png" alt="BLIZZ"><span class="app-name">BLIZZ</span></a>
-      <a href="https://apps.apple.com/is/app/rodini/id6780505872"><img src="icons/rodini.png" alt="RODINI"><span class="app-name">RODINI</span></a>
-      <a class="round" href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
+
+    <nav style="display:contents" aria-label="Apps">
+      <!-- column 1 -->
+      <a class="app" style="grid-area:3/1" href="https://apps.apple.com/is/app/klukk/id6771493324"><img src="icons/klukk.png" alt="KLUKK!"><span class="app-name">KLUKK!</span></a>
+      <a class="app" style="grid-area:4/1" href="https://apps.apple.com/is/app/bill-to-book/id6777167648"><img src="icons/billtobook.png" alt="Bill To Book"><span class="app-name">Bill To Book</span></a>
+      <a class="app round" style="grid-area:5/1" href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
+
+      <!-- column 2 -->
+      <!-- in App Review for the first time — swap .soon <span>s for an <a> with the store link once live -->
+      <span class="app soon" style="grid-area:3/2" tabindex="0" aria-label="FELAG — væntanlegt"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small>væntanlegt</small></span></span>
+      <a class="app" style="grid-area:4/2" href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
+      <a class="app" style="grid-area:5/2" href="https://apps.apple.com/is/app/blizz/id6788556730"><img src="icons/blizz.png" alt="BLIZZ"><span class="app-name">BLIZZ</span></a>
+      <span class="app soon" style="grid-area:6/2" tabindex="0" aria-label="VSKiL — væntanlegt"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></span>
+
+      <!-- column 3 -->
+      <a class="app" style="grid-area:3/3" href="https://apps.apple.com/is/app/rodini/id6780505872"><img src="icons/rodini.png" alt="RODINI"><span class="app-name">RODINI</span></a>
+      <span class="app soon" style="grid-area:4/3" tabindex="0" aria-label="SKRIBB — væntanlegt"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small>væntanlegt</small></span></span>
     </nav>
   </div>
 </main>
@@ -326,10 +398,99 @@
     mark.setAttribute("aria-expanded", "false");
   });
 
-  document.querySelectorAll(".apps a").forEach(a => {
-    ["pointerenter", "focus"].forEach(ev => a.addEventListener(ev, () => cycle(a)));
+  document.querySelectorAll(".app").forEach(a => {
+    a.querySelector("img").addEventListener("pointerenter", () => cycle(a));
+    a.addEventListener("focus", () => cycle(a));
     a.querySelector(".app-name").addEventListener("animationend", () => a.classList.remove("show"));
   });
+
+  // ——— the crosses ———
+  // the board's cells set the pitch and the phase; the pattern then runs to
+  // every edge of the window, leaving out cells that are taken (letters, apps)
+  // and anything that would crowd the footer text.
+  const crosses = document.querySelector(".crosses");
+  const board = document.querySelector(".board");
+
+  function drawCrosses() {
+    const b = board.getBoundingClientRect();
+    const cell = b.width / 3;
+    const W = innerWidth, H = innerHeight;
+
+    const taken = new Set();
+    const key = (c, r) => c + "," + r;
+    [0, 1, 2].forEach(c => taken.add(key(c, 0)));              // N N V
+    board.querySelectorAll(".app").forEach(a => {
+      const r = a.getBoundingClientRect();
+      taken.add(key(Math.round((r.left - b.left) / cell), Math.round((r.top - b.top) / cell)));
+    });
+
+    const keepOut = [...document.querySelectorAll("footer > span")].map(s => {
+      const r = s.getBoundingClientRect(), m = 14;
+      return { l: r.left - m, r: r.right + m, t: r.top - m, b: r.bottom + m };
+    });
+
+    const c0 = Math.floor(-b.left / cell), c1 = Math.ceil((W - b.left) / cell);
+    const r0 = Math.floor(-b.top / cell),  r1 = Math.ceil((H - b.top) / cell);
+    const frag = document.createDocumentFragment();
+
+    for (let r = r0; r <= r1; r++) {
+      for (let c = c0; c <= c1; c++) {
+        if (taken.has(key(c, r))) continue;
+        const x = b.left + (c + 0.5) * cell, y = b.top + (r + 0.5) * cell;
+        if (x < 8 || y < 8 || x > W - 8 || y > H - 8) continue;
+        if (keepOut.some(k => x > k.l && x < k.r && y > k.t && y < k.b)) continue;
+        const i = document.createElement("i");
+        i.style.left = x + "px";
+        i.style.top = y + "px";
+        frag.appendChild(i);
+      }
+    }
+    crosses.replaceChildren(frag);
+  }
+
+  // ——— centre each letter's ink on its cell ———
+  // side bearings and baseline differ per glyph, so measure the real shapes
+  const probe = document.createElement("canvas").getContext("2d");
+  function centreLetters() {
+    const cs = getComputedStyle(mark);
+    probe.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    probe.textBaseline = "alphabetic";
+    mark.querySelectorAll("span").forEach(s => {
+      s.style.setProperty("--dx", "0px");
+      s.style.setProperty("--dy", "0px");
+      const m = probe.measureText(s.textContent);
+      // horizontal: ink centre vs. advance centre
+      const inkMid = (m.actualBoundingBoxRight - m.actualBoundingBoxLeft) / 2;
+      const dx = m.width / 2 - inkMid;
+      // vertical: baseline measured relative to the span itself, so any
+      // transform in play (the entrance animation) cancels out
+      const box = s.getBoundingClientRect();
+      const baseline = baselineOf(s) - box.top;
+      const inkCentreY = baseline - m.actualBoundingBoxAscent / 2;
+      const dy = box.height / 2 - inkCentreY;
+      s.style.setProperty("--dx", dx.toFixed(2) + "px");
+      s.style.setProperty("--dy", dy.toFixed(2) + "px");
+    });
+  }
+  // baseline of a text line = bottom of an inline-block of zero height placed in it
+  function baselineOf(el) {
+    const b = document.createElement("span");
+    b.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+    el.appendChild(b);
+    const y = b.getBoundingClientRect().top;
+    b.remove();
+    return y;
+  }
+
+  function layout() { centreLetters(); drawCrosses(); }
+
+  let pending;
+  addEventListener("resize", () => {
+    cancelAnimationFrame(pending);
+    pending = requestAnimationFrame(layout);
+  });
+  layout();
+  document.fonts && document.fonts.ready.then(layout);
 </script>
 
 </body>
