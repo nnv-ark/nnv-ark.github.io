@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSKiL — Support</title>
+<meta name="description" content="Support for the VSKiL macOS VAT-return app by NNV ehf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#f7f4ed; --ink:#211f1a; --ink-soft:#6e6a60; --hairline:#d9d4c8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.65;
+  }
+  .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
+  a.home { display:inline-block; text-decoration:none; color:var(--ink); font-weight:500;
+           letter-spacing:0.18em; text-transform:uppercase; font-size:0.78rem; margin-bottom:2.5rem;
+           border-bottom:1px solid var(--hairline); padding-bottom:2px; }
+  h1 { font-weight:500; font-size:clamp(1.9rem,5vw,2.6rem); letter-spacing:0.01em; line-height:1.1; }
+  .lead { color:var(--ink-soft); font-size:1.05rem; margin:0.8rem 0 2.2rem; }
+  h2 { font-weight:500; font-size:1.15rem; margin:2rem 0 0.5rem; }
+  p { margin:0.6rem 0; color:#332f28; }
+  ul { margin:0.6rem 0 0.6rem 1.2rem; color:#332f28; }
+  li { margin:0.3rem 0; }
+  a { color:var(--ink); }
+  .mail { font-weight:500; }
+  footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
+           color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="home" href="/">← Norðnorðvestur</a>
+  <h1>VSKiL — Support</h1>
+  <p class="lead">A native macOS app for preparing and filing Icelandic VAT returns (VSK-skýrsla) with Iceland Revenue (Skatturinn).</p>
+
+  <h2>Getting started</h2>
+  <ul>
+    <li>Add your <strong>company</strong> in <strong>Settings → Companies</strong>: name, ID number (kennitala) and VAT number.
+        If you use FELAG, VSKiL reads your companies from there.</li>
+    <li>Save your company's <strong>web key (veflykill)</strong> from Iceland Revenue in Settings.
+        It is kept in your Mac's Keychain, never in the app's data.</li>
+    <li>Pick a <strong>period</strong> and add sales and purchases with <strong>New Entry (⌘N)</strong>,
+        or import the VAT summary from RUKK with <strong>From RUKK…</strong> or by dragging the file onto the window.</li>
+    <li>Click <strong>Fetch Details</strong>, then <strong>Validate</strong>, then <strong>File VAT Return</strong>.
+        The receipt and payment claim appear in the app.</li>
+  </ul>
+
+  <h2>Common questions</h2>
+  <p><strong>Can I use VSKiL in English?</strong> Yes. It follows your Mac's language, and you can choose
+  English or Icelandic in <strong>Settings → General → Language</strong>.</p>
+  <p><strong>Can I keep more than one company?</strong> Yes. Each company has its own periods, entries and
+  web key, and a RUKK summary is only ever imported into the company whose ID number it carries.</p>
+  <p><strong>Where did my window go?</strong> VSKiL is a single-window app: closing the window quits it,
+  and your work is saved as you go. Open VSKiL again to continue.</p>
+  <p><strong>Want to try it without real data?</strong> Sample files and a walkthrough are at
+  <a href="/vskil-demo/">nordnordvestur.com/vskil-demo</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Need help, found a bug, or have a suggestion? Email
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> and we'll
+  get back to you.</p>
+
+  <p><a href="vskil-privacy.html">Privacy Policy →</a></p>
+
+  <footer>© NNV ehf. · Reykjavík, Ísland</footer>
+</div>
+</body>
+</html>
