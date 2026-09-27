@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSKiL sample files</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --accent:#0a66c2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1c1c1e; --fg:#f5f5f7; --muted:#a1a1a6; --line:#3a3a3c; --accent:#4da3ff; } }
+  body { background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; margin:0; }
+  main { max-width:720px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:28px; margin:0 0 4px; } h2 { font-size:19px; margin:32px 0 8px; }
+  p.lead { color:var(--muted); margin-top:0; }
+  a { color:var(--accent); }
+  ol li, ul li { margin:6px 0; }
+  code { font-family:ui-monospace, Menlo, monospace; font-size:14px; background:rgba(127,127,127,.12); padding:1px 5px; border-radius:4px; }
+  .files a { display:block; padding:12px 14px; border:1px solid var(--line); border-radius:10px; margin:8px 0; text-decoration:none; }
+  .files span { color:var(--muted); font-size:14px; display:block; }
+  table { border-collapse:collapse; margin:8px 0; } td { padding:4px 16px 4px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>VSKiL — sample files</h1>
+  <p class="lead">Sample VAT summaries for reviewing VSKiL. The company and all figures are fictional.</p>
+
+  <h2>Sample files</h2>
+  <div class="files">
+    <a href="_vskil-4503158850-2026-32.json" download>_vskil-4503158850-2026-32.json<span>VAT summary, July–August 2026 — 4 sales, 4 purchases</span></a>
+    <a href="_vskil-4503158850-2026-40.json" download>_vskil-4503158850-2026-40.json<span>VAT summary, September–October 2026 — 2 sales, 2 purchases</span></a>
+  </div>
+  <p>These are the files our invoicing app RUKK exports for VSKiL. VSKiL only imports a summary into the company whose ID number (kennitala) it carries, so first add the sample company below.</p>
+
+  <h2>1. Add the sample company</h2>
+  <ol>
+    <li>Open <b>VSKiL → Settings…</b> (⌘,) and choose the <b>Companies</b> tab.</li>
+    <li>Click <b>+</b> and enter:
+      <table>
+        <tr><td>Name</td><td><code>Sólbakki Bygg ehf.</code></td></tr>
+        <tr><td>ID number (kennitala)</td><td><code>4503158850</code></td></tr>
+        <tr><td>VAT number (VSK-númer)</td><td><code>145623</code></td></tr>
+      </table>
+    </li>
+    <li>Click <b>Make active</b> and close Settings.</li>
+  </ol>
+
+  <h2>2. Import a VAT summary</h2>
+  <ol>
+    <li>In the main window, open <b>Periods of the year</b> and select <b>Jul–Aug</b>.</li>
+    <li>Drag <code>_vskil-4503158850-2026-32.json</code> onto the VSKiL window — or click <b>From RUKK…</b>, then <b>Choose File…</b>, and pick the file.</li>
+    <li>The period's entries appear, and the VAT return (boxes A–H) fills in: turnover, output VAT, input VAT and the amount due.</li>
+    <li>Repeat with the September–October file for <b>Sep–Oct</b>.</li>
+  </ol>
+
+  <h2>3. Other features to try</h2>
+  <ul>
+    <li><b>File → New Entry…</b> (⌘N) adds a sale or purchase by hand; the return updates at once.</li>
+    <li>Right-click an entry to delete it.</li>
+    <li><b>Dashboard &amp; overview</b> shows input and output VAT for every period of the year.</li>
+    <li><b>Settings → General → Language</b> switches between English and Icelandic.</li>
+    <li>If the main window is closed, reopen it from the <b>Window</b> menu or by clicking VSKiL in the Dock.</li>
+  </ul>
+
+  <h2>Filing with Iceland Revenue</h2>
+  <p><b>Fetch Details</b>, <b>Validate</b> and <b>File VAT Return</b> send the return to Iceland Revenue (Skatturinn). This requires a real company's ID number and its web key (veflykill), a tax credential issued by Iceland Revenue to that company only, so it cannot be demonstrated with sample data.</p>
+
+  <p class="lead" style="margin-top:40px">NNV ehf. · <a href="https://nordnordvestur.com">nordnordvestur.com</a></p>
+</main>
+</body>
+</html>

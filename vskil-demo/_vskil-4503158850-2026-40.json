@@ -1,0 +1,57 @@
+{
+  "tegund": "VSKIL-YFIRLIT",
+  "utgafa": 2,
+  "kennitala": "4503158850",
+  "fyrirtaeki": "Sólbakki Bygg ehf.",
+  "vskNumer": "145623",
+  "ar": 2026,
+  "timabil": 40,
+  "timabilHeiti": "sep–okt",
+  "dagsFra": "2026-09-01",
+  "dagsTil": "2026-10-31",
+  "sala": [
+    {
+      "lysing": "Reikningur 1045 — Klæðning, Sjávargata 2",
+      "threp": 24,
+      "netto": 1580000,
+      "vsk": 379200,
+      "audkenni": "SYNISHORN-S400-24",
+      "dagsetning": "2026-09-10"
+    },
+    {
+      "lysing": "Reikningur 1046 — Eftirlit framkvæmda",
+      "threp": 24,
+      "netto": 275000,
+      "vsk": 66000,
+      "audkenni": "SYNISHORN-S401-24",
+      "dagsetning": "2026-10-02"
+    }
+  ],
+  "innkaup": [
+    {
+      "lysing": "Byko — klæðningarefni",
+      "threp": 24,
+      "netto": 812000,
+      "vsk": 194880,
+      "audkenni": "SYNISHORN-I400-24",
+      "dagsetning": "2026-09-04"
+    },
+    {
+      "lysing": "Vélaleiga — lyfta",
+      "threp": 24,
+      "netto": 145000,
+      "vsk": 34800,
+      "audkenni": "SYNISHORN-I401-24",
+      "dagsetning": "2026-09-15"
+    }
+  ],
+  "samtala": {
+    "velta24": 1855000,
+    "velta11": 0,
+    "undanthegin": 0,
+    "utskattur24": 445200,
+    "utskattur11": 0,
+    "innskattur24": 229680,
+    "innskattur11": 0
+  }
+}

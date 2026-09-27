@@ -1,0 +1,89 @@
+{
+  "tegund": "VSKIL-YFIRLIT",
+  "utgafa": 2,
+  "kennitala": "4503158850",
+  "fyrirtaeki": "Sólbakki Bygg ehf.",
+  "vskNumer": "145623",
+  "ar": 2026,
+  "timabil": 32,
+  "timabilHeiti": "júl–ágú",
+  "dagsFra": "2026-07-01",
+  "dagsTil": "2026-08-31",
+  "sala": [
+    {
+      "lysing": "Reikningur 1041 — Þakviðgerð, Hólmgata 4",
+      "threp": 24,
+      "netto": 850000,
+      "vsk": 204000,
+      "audkenni": "SYNISHORN-S320-24",
+      "dagsetning": "2026-07-08"
+    },
+    {
+      "lysing": "Reikningur 1042 — Ráðgjöf, útboðsgögn",
+      "threp": 24,
+      "netto": 320000,
+      "vsk": 76800,
+      "audkenni": "SYNISHORN-S321-24",
+      "dagsetning": "2026-07-21"
+    },
+    {
+      "lysing": "Reikningur 1043 — Gluggaskipti, Lindarbraut 12",
+      "threp": 24,
+      "netto": 1240000,
+      "vsk": 297600,
+      "audkenni": "SYNISHORN-S322-24",
+      "dagsetning": "2026-08-14"
+    },
+    {
+      "lysing": "Reikningur 1044 — Útflutt hönnunarvinna",
+      "threp": 0,
+      "netto": 410000,
+      "vsk": 0,
+      "audkenni": "SYNISHORN-S323-0",
+      "dagsetning": "2026-08-27"
+    }
+  ],
+  "innkaup": [
+    {
+      "lysing": "Byko — timbur og festingar",
+      "threp": 24,
+      "netto": 380000,
+      "vsk": 91200,
+      "audkenni": "SYNISHORN-I320-24",
+      "dagsetning": "2026-07-03"
+    },
+    {
+      "lysing": "Húsasmiðjan — gluggar",
+      "threp": 24,
+      "netto": 690000,
+      "vsk": 165600,
+      "audkenni": "SYNISHORN-I321-24",
+      "dagsetning": "2026-08-05"
+    },
+    {
+      "lysing": "Olís — eldsneyti",
+      "threp": 24,
+      "netto": 64500,
+      "vsk": 15480,
+      "audkenni": "SYNISHORN-I322-24",
+      "dagsetning": "2026-08-19"
+    },
+    {
+      "lysing": "Veitingar starfsmanna",
+      "threp": 11,
+      "netto": 42000,
+      "vsk": 4620,
+      "audkenni": "SYNISHORN-I323-11",
+      "dagsetning": "2026-08-22"
+    }
+  ],
+  "samtala": {
+    "velta24": 2410000,
+    "velta11": 0,
+    "undanthegin": 410000,
+    "utskattur24": 578400,
+    "utskattur11": 0,
+    "innskattur24": 272280,
+    "innskattur11": 4620
+  }
+}
