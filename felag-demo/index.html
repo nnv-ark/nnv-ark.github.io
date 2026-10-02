@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FELAG — sample files</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1d1d1f; --muted:#6e6e73; --line:#d2d2d7; --accent:#0a66c2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1c1c1e; --fg:#f5f5f7; --muted:#a1a1a6; --line:#3a3a3c; --accent:#4da3ff; } }
+  body { background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; margin:0; }
+  main { max-width:760px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:28px; margin:0 0 4px; } h2 { font-size:19px; margin:32px 0 8px; }
+  p.lead { color:var(--muted); margin-top:0; }
+  a { color:var(--accent); }
+  ol li, ul li { margin:6px 0; }
+  code { font-family:ui-monospace, Menlo, monospace; font-size:14px; background:rgba(127,127,127,.12); padding:1px 5px; border-radius:4px; }
+  .files a { display:block; padding:12px 14px; border:1px solid var(--line); border-radius:10px; margin:8px 0; text-decoration:none; }
+  .files span { color:var(--muted); font-size:14px; display:block; }
+  table { border-collapse:collapse; margin:8px 0; } td { padding:4px 16px 4px 0; }
+  .note { border-left:3px solid var(--line); padding:2px 0 2px 14px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>FELAG — sample files</h1>
+  <p class="lead">Sample company register for reviewing FELAG. The three companies and all their details are fictional.</p>
+
+  <h2>Easiest way: the built-in sample data</h2>
+  <ol>
+    <li>Open FELAG.</li>
+    <li>Choose <b>Help → Load Sample Data</b>.</li>
+    <li>A yellow banner appears at the top of the window: <i>Sample Data — fictional details, not your real records.</i> Everything below it is sample data.</li>
+    <li>To return to your own records, click <b>Leave Sample Data</b> in the banner (or <b>Help → Leave Sample Data</b>). FELAG keeps no real records unless you enter them.</li>
+  </ol>
+
+  <h2>Or import this file</h2>
+  <div class="files">
+    <a href="companies.xml" download>companies.xml<span>Three fictional companies, with logos — the same file the built-in sample data uses</span></a>
+    <a href="logos/logo-solbakki.png" download>logo-solbakki.png<span>Company mark, for testing the logo field</span></a>
+    <a href="logos/logo-kaffi.png" download>logo-kaffi.png<span>Company mark, for testing the logo field</span></a>
+    <a href="logos/logo-nordurljos.png" download>logo-nordurljos.png<span>Company mark, for testing the logo field</span></a>
+  </div>
+  <ol>
+    <li>Download <code>companies.xml</code> (click it above).</li>
+    <li>In FELAG, choose <b>File → Import Company File…</b> (⇧⌘I) and pick the file.</li>
+    <li>FELAG reports how many companies it added. Importing only ever adds — a company already in the register (same ID or same ID number) is left alone.</li>
+  </ol>
+
+  <h2>What to look at</h2>
+  <ul>
+    <li><b>The sidebar</b> lists the companies, each with its mark. Use the <b>+</b> and <b>−</b> buttons below the list (or <b>File → New Company</b>, ⌘N) to add and delete companies.</li>
+    <li><b>The checkmark</b> marks the active company — the one our other apps read. Select a different company and click <b>Make Active</b> to change it.</li>
+    <li><b>The detail form</b> holds name, ID number (kennitala), VAT number, address, contact details, bank account, a short note and a logo. Every change is saved as you type — there is no Save button and no unsaved-changes state.</li>
+    <li><b>Validation:</b> type an invalid ID number (for example <code>4503158950</code>) or a bank account that is not 12 digits, and the field is marked red with an explanation. Valid input shows the formatted values (<code>450315-8850</code>, <code>0301-26-123456</code>).</li>
+    <li><b>Logo:</b> click <b>Choose Logo…</b> and pick one of the PNGs above, or drag an image straight onto the logo field.</li>
+    <li><b>Connections</b> (<b>View → Connections</b>, ⌘T, or the FELAG badge at the bottom of the sidebar) shows the four apps that share this company register: RUKK, VSKiL, LAUNA and BLIZZ.</li>
+  </ul>
+
+  <h2>About the Connections panel</h2>
+  <p class="note">FELAG stores your company details once, on your Mac, and the four apps above read them from that one place. Those four are
+  separate apps, sold separately, so on a Mac where they are not installed the four cards stay grey and say <i>Not installed</i>. A card turns
+  green after that app has run on the same Mac at least once and registered itself. Nothing is missing from FELAG in that state: the register,
+  the form, the validation, the logo and the sample data all work on their own. <a href="https://apps.apple.com/is/app/rukk/id6777342177">RUKK</a>
+  is already on the App Store if you would like to see a companion app.</p>
+
+  <h2>Two things worth knowing</h2>
+  <ul>
+    <li>FELAG is a single-window app: closing the window quits it, and your changes are already saved. Open FELAG again to continue.</li>
+    <li>If the window does not come back after you close it, use the Dock or Launchpad — FELAG is not running any more at that point.</li>
+  </ul>
+
+  <p class="lead" style="margin-top:40px">NNV ehf. · <a href="https://nordnordvestur.com">nordnordvestur.com</a> ·
+  <a href="https://nordnordvestur.com/felag-support.html">FELAG support</a></p>
+</main>
+</body>
+</html>
