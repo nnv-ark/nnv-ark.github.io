@@ -209,15 +209,49 @@
 
   footer {
     position: fixed;
-    inset: auto clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
+    inset: auto clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 1.5rem;
     font-size: 0.7rem;
     letter-spacing: 0.14em;
     color: var(--ink-soft);
     user-select: none;
   }
+
+  /* ——— support and privacy, the one place a lost user lands ———
+     Every app has its own page; the row keeps them reachable from the
+     front door. It wraps rather than crowds, and the crosses keep out of
+     it because the keep-out reads footer > span. */
+
+  footer .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.5rem 1.4rem;
+    text-transform: uppercase;
+  }
+
+  footer .services .group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.7rem;
+  }
+
+  footer .services .label { opacity: 0.7; }
+
+  footer .services a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: border-color 0.4s ease;
+  }
+
+  footer .services a:hover,
+  footer .services a:focus-visible { border-color: var(--ink); }
 
   /* ——— the apps, each centred in its own cell ——— */
 
@@ -305,6 +339,10 @@
     text-transform: lowercase;
   }
 
+  /* a tile that is not in the store yet but still leads somewhere —
+     FELAG opens its support page while it is in review */
+  a.soon { cursor: pointer; }
+
   /* nord-nord-vestur: 337.5° — the needle holds the bearing */
   .bearing {
     display: inline-flex;
@@ -345,8 +383,9 @@
       <a class="app round" style="grid-area:6/1" href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
 
       <!-- column 2 -->
-      <!-- in App Review for the first time — swap .soon <span>s for an <a> with the store link once live -->
-      <span class="app soon" style="grid-area:4/2" tabindex="0" aria-label="FELAG — væntanlegt"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small>væntanlegt</small></span></span>
+      <!-- in App Review for the first time — swap .soon <span>s for an <a> with the store link once live.
+           FELAG leads to its support page in the meantime -->
+      <a class="app soon" style="grid-area:4/2" href="felag-support.html" aria-label="FELAG — í yfirferð, opnar þjónustusíðu"><img src="icons/felag.png" alt="FELAG"><span class="app-name">FELAG<small>í yfirferð</small></span></a>
       <a class="app" style="grid-area:5/2" href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
       <a class="app" style="grid-area:6/2" href="https://apps.apple.com/is/app/blizz/id6788556730"><img src="icons/blizz.png" alt="BLIZZ"><span class="app-name">BLIZZ</span></a>
       <span class="app soon" style="grid-area:7/2" tabindex="0" aria-label="VSKiL — væntanlegt"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></span>
@@ -366,6 +405,22 @@
 
 <footer>
   <span class="coords">64°08′N 21°56′V</span>
+  <span class="services">
+    <span class="group">
+      <span class="label">Aðstoð</span>
+      <a href="felag-support.html">FELAG</a>
+      <a href="vskil-support.html">VSKiL</a>
+      <a href="rukk-support.html">RUKK</a>
+      <a href="blizz-support.html">BLIZZ</a>
+    </span>
+    <span class="group">
+      <span class="label">Persónuvernd</span>
+      <a href="felag-privacy.html">FELAG</a>
+      <a href="vskil-privacy.html">VSKiL</a>
+      <a href="rukk-privacy.html">RUKK</a>
+      <a href="blizz-privacy.html">BLIZZ</a>
+    </span>
+  </span>
   <span class="bearing">
     <svg viewBox="0 0 10 10" aria-hidden="true">
       <line x1="5" y1="9" x2="5" y2="2.5"/>
