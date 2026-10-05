@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KLUKK! — Support</title>
-<meta name="description" content="Support for the KLUKK! iOS app by NNV ehf.">
+<title>KLUKK! — Support · Aðstoð · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم</title>
+<meta name="description" content="Support for the KLUKK! iOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -28,6 +28,10 @@
   li { margin:0.3rem 0; }
   a { color:var(--ink); }
   .mail { font-weight:500; }
+  nav.langs { margin-bottom:2rem; font-size:0.85rem; letter-spacing:0.06em; }
+  nav.langs a { text-decoration:none; border-bottom:1px solid var(--hairline); padding-bottom:1px; }
+  nav.langs span { color:var(--ink-soft); margin:0 0.4rem; }
+  hr.lang-skilm { border:0; border-top:1px solid var(--hairline); margin:3rem 0; }
   footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
            color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
 </style>
@@ -35,6 +39,53 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#ar">العربية</a></nav>
+
+  <section id="is" lang="is">
+  <h1>KLUKK! — Aðstoð</h1>
+  <p class="lead">Stoppklukka sem virkjast með einni snertingu og vistar hverja tímasetta lotu í iOS-dagatalinu þínu. Fáanleg á ensku og íslensku.</p>
+
+  <h2>Nýtt í 1.3</h2>
+  <ul>
+    <li><strong>Full íslensk staðfærsla</strong> — allt forritið, þar á meðal viðbótin,
+        valið á marktíma og dagatalsblaðið, talar nú íslensku.
+        Skiptu um í <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>Hjólið fyrir marktíma sýnir nú <strong>klst / mín</strong> rétt á öllum tungumálum.</li>
+  </ul>
+
+  <h2>Að byrja</h2>
+  <ul>
+    <li>Ýttu á <strong>Link calendar</strong> við fyrstu opnun og veittu aðgang að dagatalinu.</li>
+    <li>Ýttu á stóra bleika hnappinn til að byrja; ýttu aftur til að stöðva — lotan er vistuð
+        sjálfkrafa í valið dagatal.</li>
+    <li>Ýttu á tímann til að setja <strong>mark</strong>; KLUKK! lætur þig vita þegar þú nærð því.</li>
+    <li>Bættu við <strong>Home Screen widget</strong> til að byrja og stöðva án þess að opna forritið.</li>
+    <li>Flyttu út hvaða lotu sem er sem <code>.ics</code>, eða allan skráningarlistann sem <code>.xml</code>, úr
+        dagatalslistanum og Stillingum.</li>
+  </ul>
+
+  <h2>Algengar spurningar</h2>
+  <p><strong>Ekkert vistast í dagatalið mitt.</strong> Gakktu úr skugga um að þú hafir veitt aðgang að
+  dagatalinu í Settings → Privacy &amp; Security → Calendars → KLUKK! (Full Access gerir forritinu
+  einnig kleift að búa til dagatöl).</p>
+  <p><strong>Markviðvörunin hringdi ekki.</strong> Leyfðu tilkynningar fyrir KLUKK! í
+  Settings → Notifications.</p>
+
+  <p><strong>Er forritið fáanlegt á íslensku?</strong> Já! Opnaðu
+  <strong>Stillingar → Tungumál</strong> og veldu Íslenska — allar skjámyndir og viðbótin
+  skipta um tungumál samstundis.</p>
+
+  <h2>Samband</h2>
+  <p>Vantar þig hjálp, fannst þú villu eða hefur þú tillögu? Sendu póst á
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> og við
+  svörum þér.</p>
+
+  <p><a href="klukk-privacy.html#is">Persónuverndarstefna →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="en" lang="en">
   <h1>KLUKK! — Support</h1>
   <p class="lead">A one-tap stopwatch that saves each timed session to your iOS Calendar. Available in English and Icelandic.</p>
 
@@ -73,7 +124,267 @@
   <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> and we'll
   get back to you.</p>
 
-  <p><a href="/klukk-privacy.html">Privacy Policy →</a></p>
+  <p><a href="klukk-privacy.html#en">Privacy Policy →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="da" lang="da">
+  <h1>KLUKK! — Hjælp</h1>
+  <p class="lead">Et stopur, der startes med ét tryk, og som gemmer hver tidtagning i din iOS-kalender. Findes på engelsk og islandsk.</p>
+
+  <h2>Nyt i 1.3</h2>
+  <ul>
+    <li><strong>Fuld islandsk lokalisering</strong> — hele appen, inklusive widgeten,
+        valget af måltid og kalenderarket, taler nu islandsk.
+        Skift i <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>Hjulet til måltid viser nu <strong>klst / mín</strong> korrekt på alle sprog.</li>
+  </ul>
+
+  <h2>Kom godt i gang</h2>
+  <ul>
+    <li>Tryk på <strong>Link calendar</strong> ved første start, og giv adgang til Kalender.</li>
+    <li>Tryk på den store lyserøde knap for at starte; tryk igen for at stoppe — tiden gemmes
+        automatisk i den valgte kalender.</li>
+    <li>Tryk på tiden for at angive et <strong>mål</strong>; KLUKK! giver dig besked, når du når det.</li>
+    <li>Tilføj <strong>Home Screen widget</strong> for at starte og stoppe uden at åbne appen.</li>
+    <li>Eksportér enhver tidtagning som <code>.ics</code>, eller hele din log som <code>.xml</code>, fra
+        kalenderlisten og Indstillinger.</li>
+  </ul>
+
+  <h2>Ofte stillede spørgsmål</h2>
+  <p><strong>Der gemmes intet i min kalender.</strong> Kontrollér, at du har givet adgang til
+  Kalender i Settings → Privacy &amp; Security → Calendars → KLUKK! (Full Access gør det også
+  muligt at oprette kalendere).</p>
+  <p><strong>Måltidsalarmen ringede ikke.</strong> Tillad notifikationer for KLUKK! i
+  Settings → Notifications.</p>
+
+  <p><strong>Findes appen på islandsk?</strong> Já! Åbn
+  <strong>Stillingar → Tungumál</strong>, og vælg Íslenska — alle visninger og widgeten
+  skifter med det samme.</p>
+
+  <h2>Kontakt</h2>
+  <p>Har du brug for hjælp, fundet en fejl eller en idé? Send en e-mail til
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, så vender vi
+  tilbage.</p>
+
+  <p><a href="klukk-privacy.html#da">Privatlivspolitik →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="de" lang="de">
+  <h1>KLUKK! — Support</h1>
+  <p class="lead">Eine Stoppuhr, die sich mit einem Tippen starten lässt und jede Zeitmessung in deinem iOS-Kalender speichert. Verfügbar auf Englisch und Isländisch.</p>
+
+  <h2>Neu in 1.3</h2>
+  <ul>
+    <li><strong>Vollständige isländische Lokalisierung</strong> — die gesamte App, einschließlich Widget,
+        Zielzeit-Auswahl und Kalenderblatt, spricht jetzt Isländisch.
+        Wechsle in <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>Das Rad für die Zielzeit zeigt jetzt <strong>klst / mín</strong> in jeder Sprache korrekt an.</li>
+  </ul>
+
+  <h2>Erste Schritte</h2>
+  <ul>
+    <li>Tippe beim ersten Start auf <strong>Link calendar</strong> und erlaube den Zugriff auf den Kalender.</li>
+    <li>Tippe auf die große pinkfarbene Taste, um zu starten; tippe erneut, um zu stoppen — die Sitzung wird
+        automatisch im gewählten Kalender gespeichert.</li>
+    <li>Tippe auf die Zeit, um ein <strong>Ziel</strong> festzulegen; KLUKK! meldet sich, wenn du es erreichst.</li>
+    <li>Füge <strong>Home Screen widget</strong> hinzu, um zu starten und zu stoppen, ohne die App zu öffnen.</li>
+    <li>Exportiere jede Sitzung als <code>.ics</code> oder dein gesamtes Protokoll als <code>.xml</code> aus der
+        Kalenderliste und den Einstellungen.</li>
+  </ul>
+
+  <h2>Häufige Fragen</h2>
+  <p><strong>In meinem Kalender wird nichts gespeichert.</strong> Stelle sicher, dass du den
+  Kalenderzugriff unter Settings → Privacy &amp; Security → Calendars → KLUKK! erlaubt hast
+  (Full Access erlaubt es auch, Kalender zu erstellen).</p>
+  <p><strong>Der Zielalarm hat nicht geklingelt.</strong> Erlaube Mitteilungen für KLUKK! unter
+  Settings → Notifications.</p>
+
+  <p><strong>Gibt es die App auf Isländisch?</strong> Já! Öffne
+  <strong>Stillingar → Tungumál</strong> und wähle Íslenska — alle Ansichten und das Widget
+  wechseln sofort.</p>
+
+  <h2>Kontakt</h2>
+  <p>Du brauchst Hilfe, hast einen Fehler gefunden oder eine Anregung? Schreib an
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, wir melden
+  uns bei dir.</p>
+
+  <p><a href="klukk-privacy.html#de">Datenschutzerklärung →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="pl" lang="pl">
+  <h1>KLUKK! — Pomoc</h1>
+  <p class="lead">Stoper uruchamiany jednym dotknięciem, który zapisuje każdy pomiar czasu w Twoim kalendarzu iOS. Dostępny w języku angielskim i islandzkim.</p>
+
+  <h2>Nowości w wersji 1.3</h2>
+  <ul>
+    <li><strong>Pełna islandzka lokalizacja</strong> — cała aplikacja, w tym widget,
+        wybór czasu docelowego i arkusz kalendarza, mówi teraz po islandzku.
+        Przełącz w <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>Pokrętło czasu docelowego pokazuje teraz <strong>klst / mín</strong> poprawnie w każdym języku.</li>
+  </ul>
+
+  <h2>Pierwsze kroki</h2>
+  <ul>
+    <li>Przy pierwszym uruchomieniu dotknij <strong>Link calendar</strong> i przyznaj dostęp do kalendarza.</li>
+    <li>Dotknij dużego różowego przycisku, aby rozpocząć; dotknij ponownie, aby zatrzymać — sesja jest
+        zapisywana automatycznie w wybranym kalendarzu.</li>
+    <li>Dotknij czasu, aby ustawić <strong>cel</strong>; KLUKK! powiadomi Cię, gdy go osiągniesz.</li>
+    <li>Dodaj <strong>Home Screen widget</strong>, aby rozpoczynać i zatrzymywać pomiar bez otwierania aplikacji.</li>
+    <li>Eksportuj dowolną sesję jako <code>.ics</code> lub cały dziennik jako <code>.xml</code> z
+        listy kalendarza i Ustawień.</li>
+  </ul>
+
+  <h2>Częste pytania</h2>
+  <p><strong>Nic nie zapisuje się w moim kalendarzu.</strong> Upewnij się, że przyznałeś dostęp do
+  kalendarza w Settings → Privacy &amp; Security → Calendars → KLUKK! (Full Access pozwala także
+  tworzyć kalendarze).</p>
+  <p><strong>Alarm docelowy nie zadzwonił.</strong> Zezwól KLUKK! na powiadomienia w
+  Settings → Notifications.</p>
+
+  <p><strong>Czy aplikacja jest dostępna po islandzku?</strong> Já! Otwórz
+  <strong>Stillingar → Tungumál</strong> i wybierz Íslenska — wszystkie widoki i widget
+  przełączają się natychmiast.</p>
+
+  <h2>Kontakt</h2>
+  <p>Potrzebujesz pomocy, znalazłeś błąd lub masz sugestię? Napisz na adres
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, a odpowiemy.</p>
+
+  <p><a href="klukk-privacy.html#pl">Polityka prywatności →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="ru" lang="ru">
+  <h1>KLUKK! — Поддержка</h1>
+  <p class="lead">Секундомер, запускаемый одним касанием, который сохраняет каждое измерение времени в вашем календаре iOS. Доступен на английском и исландском языках.</p>
+
+  <h2>Новое в версии 1.3</h2>
+  <ul>
+    <li><strong>Полная исландская локализация</strong> — всё приложение, включая виджет,
+        выбор целевого времени и лист календаря, теперь говорит по-исландски.
+        Переключите в <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>Колесо целевого времени теперь правильно показывает <strong>klst / mín</strong> на всех языках.</li>
+  </ul>
+
+  <h2>Начало работы</h2>
+  <ul>
+    <li>При первом запуске нажмите <strong>Link calendar</strong> и предоставьте доступ к календарю.</li>
+    <li>Нажмите большую розовую кнопку, чтобы начать; нажмите ещё раз, чтобы остановить — сессия
+        автоматически сохраняется в выбранном календаре.</li>
+    <li>Нажмите на время, чтобы задать <strong>цель</strong>; KLUKK! сообщит вам, когда она будет достигнута.</li>
+    <li>Добавьте <strong>Home Screen widget</strong>, чтобы запускать и останавливать отсчёт, не открывая приложение.</li>
+    <li>Экспортируйте любую сессию как <code>.ics</code> или весь журнал как <code>.xml</code> из
+        списка календаря и настроек.</li>
+  </ul>
+
+  <h2>Частые вопросы</h2>
+  <p><strong>В мой календарь ничего не сохраняется.</strong> Убедитесь, что вы разрешили доступ к
+  календарю в Settings → Privacy &amp; Security → Calendars → KLUKK! (Full Access позволяет также
+  создавать календари).</p>
+  <p><strong>Целевой будильник не сработал.</strong> Разрешите уведомления для KLUKK! в
+  Settings → Notifications.</p>
+
+  <p><strong>Есть ли приложение на исландском?</strong> Já! Откройте
+  <strong>Stillingar → Tungumál</strong> и выберите Íslenska — все экраны и виджет
+  переключаются мгновенно.</p>
+
+  <h2>Контакты</h2>
+  <p>Нужна помощь, нашли ошибку или есть предложение? Напишите на
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, и мы ответим.</p>
+
+  <p><a href="klukk-privacy.html#ru">Политика конфиденциальности →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="uk" lang="uk">
+  <h1>KLUKK! — Підтримка</h1>
+  <p class="lead">Секундомір, який запускається одним дотиком і зберігає кожен вимір часу у вашому календарі iOS. Доступний англійською та ісландською.</p>
+
+  <h2>Нове у версії 1.3</h2>
+  <ul>
+    <li><strong>Повна ісландська локалізація</strong> — весь застосунок, зокрема віджет,
+        вибір цільового часу та аркуш календаря, тепер говорить ісландською.
+        Перемкніть у <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>Колесо цільового часу тепер правильно показує <strong>klst / mín</strong> усіма мовами.</li>
+  </ul>
+
+  <h2>Початок роботи</h2>
+  <ul>
+    <li>Під час першого запуску торкніться <strong>Link calendar</strong> і надайте доступ до календаря.</li>
+    <li>Торкніться великої рожевої кнопки, щоб почати; торкніться ще раз, щоб зупинити — сеанс
+        автоматично зберігається у вибраному календарі.</li>
+    <li>Торкніться часу, щоб задати <strong>ціль</strong>; KLUKK! повідомить вас, коли її досягнуто.</li>
+    <li>Додайте <strong>Home Screen widget</strong>, щоб запускати й зупиняти відлік, не відкриваючи застосунок.</li>
+    <li>Експортуйте будь-який сеанс як <code>.ics</code> або весь журнал як <code>.xml</code> зі
+        списку календаря та налаштувань.</li>
+  </ul>
+
+  <h2>Поширені запитання</h2>
+  <p><strong>У мій календар нічого не зберігається.</strong> Переконайтеся, що ви надали доступ до
+  календаря в Settings → Privacy &amp; Security → Calendars → KLUKK! (Full Access дає змогу також
+  створювати календарі).</p>
+  <p><strong>Цільовий будильник не пролунав.</strong> Дозвольте сповіщення для KLUKK! у
+  Settings → Notifications.</p>
+
+  <p><strong>Чи є застосунок ісландською?</strong> Já! Відкрийте
+  <strong>Stillingar → Tungumál</strong> і виберіть Íslenska — усі екрани та віджет
+  перемикаються миттєво.</p>
+
+  <h2>Контакти</h2>
+  <p>Потрібна допомога, знайшли помилку чи маєте пропозицію? Напишіть на
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, і ми відповімо.</p>
+
+  <p><a href="klukk-privacy.html#uk">Політика конфіденційності →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="ar" lang="ar" dir="rtl">
+  <h1>KLUKK! — الدعم</h1>
+  <p class="lead">ساعة إيقاف بتشغيل بلمسة واحدة تحفظ كل جلسة توقيت في تقويم iOS لديك. متوفرة بالإنجليزية والأيسلندية.</p>
+
+  <h2>الجديد في الإصدار 1.3</h2>
+  <ul>
+    <li><strong>ترجمة أيسلندية كاملة</strong> — التطبيق بالكامل، بما في ذلك الودجة،
+        ومنتقي الوقت المستهدف وورقة التقويم، يتحدث الآن الأيسلندية.
+        يمكنك التبديل من <strong>Stillingar → Tungumál</strong> (Settings → Language).</li>
+    <li>تعرض عجلة الوقت المستهدف الآن <strong>klst / mín</strong> بشكل صحيح في كل اللغات.</li>
+  </ul>
+
+  <h2>بدء الاستخدام</h2>
+  <ul>
+    <li>عند أول تشغيل، انقر على <strong>Link calendar</strong> وامنح حق الوصول إلى التقويم.</li>
+    <li>انقر على الزر الوردي الكبير للبدء، وانقر مرة أخرى للإيقاف — تُحفظ الجلسة
+        تلقائيًا في التقويم الذي اخترته.</li>
+    <li>انقر على الوقت لتعيين <strong>هدف</strong>؛ وسينبّهك KLUKK! عند الوصول إليه.</li>
+    <li>أضف <strong>Home Screen widget</strong> للبدء والإيقاف دون فتح التطبيق.</li>
+    <li>صدّر أي جلسة بصيغة <code>.ics</code>، أو سجلك بالكامل بصيغة <code>.xml</code>، من
+        قائمة التقويم والإعدادات.</li>
+  </ul>
+
+  <h2>أسئلة شائعة</h2>
+  <p><strong>لا يُحفظ أي شيء في تقويمي.</strong> تأكد من منح حق الوصول إلى التقويم في
+  Settings → Privacy &amp; Security → Calendars → KLUKK! (يتيح Full Access إنشاء التقاويم أيضًا).</p>
+  <p><strong>لم يرنّ المنبّه المستهدف.</strong> اسمح بالإشعارات لتطبيق KLUKK! في
+  Settings → Notifications.</p>
+
+  <p><strong>هل التطبيق متوفر بالأيسلندية؟</strong> Já! افتح
+  <strong>Stillingar → Tungumál</strong> واختر Íslenska — تتبدّل كل الشاشات والودجة
+  على الفور.</p>
+
+  <h2>الاتصال</h2>
+  <p>هل تحتاج إلى مساعدة، أو وجدت خطأً، أو لديك اقتراح؟ راسلنا على
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> وسنعاود التواصل معك.</p>
+
+  <p><a href="klukk-privacy.html#ar">سياسة الخصوصية ←</a></p>
+  </section>
 
   <footer>© NNV ehf. · Reykjavík, Ísland</footer>
 </div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SKRIBB — Aðstoð / Support</title>
-<meta name="description" content="Support for the SKRIBB macOS app by NNV ehf.">
+<title>SKRIBB — Aðstoð · Support · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم</title>
+<meta name="description" content="Support for the SKRIBB macOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -21,15 +21,17 @@
            letter-spacing:0.18em; text-transform:uppercase; font-size:0.78rem; margin-bottom:2.5rem;
            border-bottom:1px solid var(--hairline); padding-bottom:2px; }
   h1 { font-weight:500; font-size:clamp(1.9rem,5vw,2.6rem); letter-spacing:0.01em; line-height:1.1; }
-  .updated { color:var(--ink-soft); font-size:0.85rem; letter-spacing:0.04em; margin:0.6rem 0 2.2rem; }
+  .lead { color:var(--ink-soft); font-size:1.05rem; margin:0.8rem 0 2.2rem; }
   h2 { font-weight:500; font-size:1.15rem; margin:2rem 0 0.5rem; }
-  h3 { font-weight:500; font-size:0.95rem; letter-spacing:0.06em; text-transform:uppercase;
-       color:var(--ink-soft); margin:2.5rem 0 0.3rem; }
   p { margin:0.6rem 0; color:#332f28; }
   ul { margin:0.6rem 0 0.6rem 1.2rem; color:#332f28; }
   li { margin:0.3rem 0; }
-  .lead { font-size:1.1rem; }
   a { color:var(--ink); }
+  .mail { font-weight:500; }
+  nav.langs { margin-bottom:2rem; font-size:0.85rem; letter-spacing:0.06em; }
+  nav.langs a { text-decoration:none; border-bottom:1px solid var(--hairline); padding-bottom:1px; }
+  nav.langs span { color:var(--ink-soft); margin:0 0.4rem; }
+  hr.lang-skilm { border:0; border-top:1px solid var(--hairline); margin:3rem 0; }
   footer { margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--hairline);
            color:var(--ink-soft); font-size:0.78rem; letter-spacing:0.1em; }
 </style>
@@ -37,11 +39,13 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
-  <h1>SKRIBB — Aðstoð / Support</h1>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#ar">العربية</a></nav>
+
+  <section id="is" lang="is">
+  <h1>SKRIBB — Aðstoð</h1>
   <p class="lead">SKRIBB er macOS-forrit til að gera og viðhalda skráningartöflum fyrir
   eignaskiptayfirlýsingar, samkvæmt leiðbeiningum Húsnæðis- og mannvirkjastofnunar (HMS).</p>
 
-  <h3>Íslenska</h3>
   <h2>Að byrja</h2>
   <ul>
     <li>Búðu til nýtt skjal (⌘N). Hvert verk er sitt eigið <strong>.skribb</strong>-skjal sem þú vistar í verkefnamöppunni.</li>
@@ -50,8 +54,22 @@
     <li>Veldu <strong>Vista skráningartöflu…</strong> til að skrifa gögnin í opinbera Excel-sniðmát HMS. Opnaðu skjalið í Excel og smelltu á „Reikna“ til að fylla samantektarblöðin.</li>
     <li>Skráningartöflu sem er þegar til má <strong>lesa inn</strong> og lagfæra.</li>
   </ul>
+  <p>Viðmót forritsins er á íslensku.</p>
 
-  <h3>English</h3>
+  <h2>Hafðu samband</h2>
+  <p>Spurningar, villur eða ábendingar: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#is">Persónuverndarstefna →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="en" lang="en">
+  <h1>SKRIBB — Support</h1>
+  <p class="lead">SKRIBB is a macOS app for creating and maintaining registration tables for
+  property division declarations (eignaskiptayfirlýsingar), following the guidelines of
+  Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
   <h2>Getting started</h2>
   <ul>
     <li>Create a new document (⌘N). Each project is its own <strong>.skribb</strong> document, saved wherever you keep the project.</li>
@@ -62,10 +80,151 @@
   </ul>
   <p>The app's interface is in Icelandic.</p>
 
-  <h2>Hafðu samband / Contact</h2>
-  <p>Spurningar, villur eða ábendingar / questions, bugs or suggestions: <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+  <h2>Contact</h2>
+  <p>Questions, bugs or suggestions: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
 
-  <p><a href="/skribb-privacy.html">Persónuvernd / Privacy Policy →</a></p>
+  <p><a href="skribb-privacy.html#en">Privacy Policy →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="da" lang="da">
+  <h1>SKRIBB — Hjælp</h1>
+  <p class="lead">SKRIBB er en macOS-app til at oprette og vedligeholde registreringstabeller til
+  ejendomsdelingserklæringer, efter retningslinjerne fra Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
+  <h2>Kom godt i gang</h2>
+  <ul>
+    <li>Opret et nyt dokument (⌘N). Hvert projekt er sit eget <strong>.skribb</strong>-dokument, som du gemmer der, hvor du har projektet.</li>
+    <li>Indtast <strong>ejendommen</strong>, derefter hver <strong>bygningsdel</strong> (matshluti), dens <strong>etager</strong> og til sidst <strong>lokalerne</strong>. Lokalenumrene følger af etagenummeret.</li>
+    <li>Arealer og rumfang beregnes løbende, og appen gør opmærksom på alt, hvad der mangler, eller som ikke består skabelonens egne kontroller.</li>
+    <li>Vælg <strong>Vista skráningartöflu…</strong> for at skrive dataene ind i HMS' officielle Excel-skabelon. Åbn dokumentet i Excel, og klik på »Reikna« for at udfylde oversigtsarkene.</li>
+    <li>En eksisterende registreringstabel kan <strong>læses ind</strong> og rettes.</li>
+  </ul>
+  <p>Appens grænseflade er på islandsk.</p>
+
+  <h2>Kontakt</h2>
+  <p>Spørgsmål, fejl eller forslag: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#da">Privatlivspolitik →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="de" lang="de">
+  <h1>SKRIBB — Hilfe</h1>
+  <p class="lead">SKRIBB ist eine macOS-App zum Erstellen und Pflegen von Registrierungstabellen für
+  Eigentumsteilungserklärungen, nach den Vorgaben der Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
+  <h2>Erste Schritte</h2>
+  <ul>
+    <li>Erstelle ein neues Dokument (⌘N). Jedes Projekt ist ein eigenes <strong>.skribb</strong>-Dokument, das du dort speicherst, wo du das Projekt ablegst.</li>
+    <li>Gib die <strong>Immobilie</strong> ein, dann jede <strong>Nutzungseinheit</strong> (matshluti), deren <strong>Etagen</strong> und schließlich die <strong>Räume</strong>. Die Raumnummern ergeben sich aus der Etagennummer.</li>
+    <li>Flächen und Volumen werden laufend berechnet, und die App weist auf alles hin, was fehlt oder die eigenen Prüfungen der Vorlage nicht besteht.</li>
+    <li>Wähle <strong>Vista skráningartöflu…</strong>, um die Daten in die offizielle Excel-Vorlage von HMS zu schreiben. Öffne das Dokument in Excel und klicke auf „Reikna“, um die Übersichtsblätter zu füllen.</li>
+    <li>Eine bereits vorhandene Registrierungstabelle kann <strong>eingelesen</strong> und korrigiert werden.</li>
+  </ul>
+  <p>Die Benutzeroberfläche der App ist auf Isländisch.</p>
+
+  <h2>Kontakt</h2>
+  <p>Fragen, Fehler oder Anregungen: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#de">Datenschutzerklärung →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="pl" lang="pl">
+  <h1>SKRIBB — Pomoc</h1>
+  <p class="lead">SKRIBB to aplikacja na macOS do tworzenia i prowadzenia tabel rejestracyjnych na
+  potrzeby deklaracji o podziale nieruchomości, zgodnie z wytycznymi Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
+  <h2>Pierwsze kroki</h2>
+  <ul>
+    <li>Utwórz nowy dokument (⌘N). Każdy projekt to osobny dokument <strong>.skribb</strong>, zapisywany tam, gdzie przechowujesz projekt.</li>
+    <li>Wprowadź <strong>nieruchomość</strong>, następnie każdą <strong>część budynku</strong> (matshluti), jej <strong>kondygnacje</strong>, a na końcu <strong>pomieszczenia</strong>. Numery pomieszczeń wynikają z numeru kondygnacji.</li>
+    <li>Powierzchnie i kubatury są obliczane na bieżąco, a aplikacja sygnalizuje wszystko, czego brakuje lub co nie przechodzi własnych kontroli szablonu.</li>
+    <li>Wybierz <strong>Vista skráningartöflu…</strong>, aby zapisać dane w oficjalnym szablonie Excel HMS. Otwórz dokument w Excelu i kliknij „Reikna”, aby wypełnić arkusze podsumowania.</li>
+    <li>Istniejącą tabelę rejestracyjną można <strong>wczytać</strong> i poprawić.</li>
+  </ul>
+  <p>Interfejs aplikacji jest w języku islandzkim.</p>
+
+  <h2>Kontakt</h2>
+  <p>Pytania, błędy lub sugestie: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#pl">Polityka prywatności →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="ru" lang="ru">
+  <h1>SKRIBB — Поддержка</h1>
+  <p class="lead">SKRIBB — приложение для macOS, предназначенное для создания и ведения регистрационных
+  таблиц для деклараций о разделе недвижимости, в соответствии с указаниями
+  Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
+  <h2>Начало работы</h2>
+  <ul>
+    <li>Создайте новый документ (⌘N). Каждый проект — это отдельный документ <strong>.skribb</strong>, который сохраняется там, где вы храните проект.</li>
+    <li>Укажите <strong>объект недвижимости</strong>, затем каждую <strong>часть здания</strong> (matshluti), её <strong>этажи</strong> и, наконец, <strong>помещения</strong>. Номера помещений определяются номером этажа.</li>
+    <li>Площади и объёмы рассчитываются по ходу работы, а приложение сообщает обо всём, чего не хватает или что не проходит собственные проверки шаблона.</li>
+    <li>Выберите <strong>Vista skráningartöflu…</strong>, чтобы записать данные в официальный шаблон Excel от HMS. Откройте документ в Excel и нажмите «Reikna», чтобы заполнить сводные листы.</li>
+    <li>Существующую регистрационную таблицу можно <strong>загрузить</strong> и исправить.</li>
+  </ul>
+  <p>Интерфейс приложения — на исландском языке.</p>
+
+  <h2>Контакты</h2>
+  <p>Вопросы, ошибки или предложения: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#ru">Политика конфиденциальности →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="uk" lang="uk">
+  <h1>SKRIBB — Підтримка</h1>
+  <p class="lead">SKRIBB — застосунок для macOS, призначений для створення та ведення реєстраційних
+  таблиць для декларацій про поділ нерухомості, відповідно до настанов
+  Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
+  <h2>Початок роботи</h2>
+  <ul>
+    <li>Створіть новий документ (⌘N). Кожен проєкт — це окремий документ <strong>.skribb</strong>, який зберігається там, де ви тримаєте проєкт.</li>
+    <li>Укажіть <strong>об'єкт нерухомості</strong>, потім кожну <strong>частину будівлі</strong> (matshluti), її <strong>поверхи</strong> і нарешті <strong>приміщення</strong>. Номери приміщень випливають із номера поверху.</li>
+    <li>Площі та об'єми обчислюються по ходу роботи, а застосунок повідомляє про все, чого бракує або що не проходить власні перевірки шаблону.</li>
+    <li>Виберіть <strong>Vista skráningartöflu…</strong>, щоб записати дані в офіційний шаблон Excel від HMS. Відкрийте документ в Excel і натисніть «Reikna», щоб заповнити зведені аркуші.</li>
+    <li>Наявну реєстраційну таблицю можна <strong>завантажити</strong> й виправити.</li>
+  </ul>
+  <p>Інтерфейс застосунку — ісландською мовою.</p>
+
+  <h2>Контакти</h2>
+  <p>Потрібна допомога, знайшли помилку чи маєте пропозицію: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#uk">Політика конфіденційності →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="ar" lang="ar" dir="rtl">
+  <h1>SKRIBB — الدعم</h1>
+  <p class="lead">‏SKRIBB تطبيق لنظام macOS لإعداد جداول التسجيل الخاصة بإقرارات تقسيم الملكية
+  وصيانتها، وفقًا لإرشادات Húsnæðis- og mannvirkjastofnun (HMS).</p>
+
+  <h2>بدء الاستخدام</h2>
+  <ul>
+    <li>أنشئ مستندًا جديدًا (⌘N). كل مشروع هو مستند <strong>.skribb</strong> خاص به، يُحفظ حيث تحتفظ بالمشروع.</li>
+    <li>أدخل <strong>العقار</strong>، ثم كل <strong>وحدة بناء</strong> (matshluti)، ثم <strong>طوابقها</strong>، وأخيرًا <strong>الغرف</strong>. تُشتق أرقام الغرف من رقم الطابق.</li>
+    <li>تُحسب المساحات والأحجام أثناء العمل، وينبّهك التطبيق إلى كل ما هو ناقص أو لا يجتاز فحوصات القالب الخاصة به.</li>
+    <li>اختر <strong>Vista skráningartöflu…</strong> لكتابة البيانات في قالب Excel الرسمي الصادر عن HMS. افتح المستند في Excel وانقر على «Reikna» لملء أوراق الملخص.</li>
+    <li>يمكن <strong>استيراد</strong> جدول تسجيل موجود وتصحيحه.</li>
+  </ul>
+  <p>واجهة التطبيق باللغة الآيسلندية.</p>
+
+  <h2>الاتصال</h2>
+  <p>أسئلة أو أخطاء أو اقتراحات: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
+
+  <p><a href="skribb-privacy.html#ar">سياسة الخصوصية ←</a></p>
+  </section>
 
   <footer>© NNV ehf. · Reykjavík, Ísland</footer>
 </div>
