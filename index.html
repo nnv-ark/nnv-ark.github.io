@@ -220,39 +220,6 @@
     user-select: none;
   }
 
-  /* ——— support and privacy, the one place a lost user lands ———
-     Every app has its own page; the row keeps them reachable from the
-     front door. It wraps rather than crowds, and the crosses keep out of
-     it because the keep-out reads footer > span. */
-
-  footer .services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
-    gap: 0.5rem 1.4rem;
-    text-transform: uppercase;
-  }
-
-  footer .services .group {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.4rem 0.7rem;
-  }
-
-  footer .services .label { opacity: 0.7; }
-
-  footer .services a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--hairline);
-    transition: border-color 0.4s ease;
-  }
-
-  footer .services a:hover,
-  footer .services a:focus-visible { border-color: var(--ink); }
-
   /* ——— the apps, each centred in its own cell ——— */
 
   .app {
@@ -358,9 +325,108 @@
   .bearing line { stroke: var(--ink-soft); stroke-width: 1.5; }
   .bearing path { fill: var(--ink-soft); }
 
+  /* ——— the app panel, top right ———
+     One app at a time: click a tile and that app's links arrive where the
+     contact panel already appears, so nothing has to be left, and nothing
+     has to be found again on the way back. */
+
+  .app-panel {
+    position: fixed;
+    top: clamp(1.25rem, 4vw, 2.5rem);
+    right: clamp(1.25rem, 4vw, 2.5rem);
+    max-width: min(19rem, calc(100vw - 2.5rem));
+    text-align: right;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    line-height: 2;
+    color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 0 0 0.6rem var(--paper);
+    opacity: 0;
+    transform: translateY(-0.4rem);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* unlike the contact card this holds until the next click, so the links
+     stay where they were put */
+  .app-panel.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  .app-panel .head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .app-panel .head img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 24%;
+    box-shadow: 0 1px 3px rgba(33, 31, 26, 0.14);
+  }
+
+  .app-panel .pname {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+  }
+
+  /* in review — the same pencil the tile wears */
+  .app-panel .pstatus {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
+    line-height: 1.4;
+  }
+
+  .app-panel .links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .app-panel .links a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: border-color 0.4s ease;
+  }
+
+  .app-panel .links a:hover,
+  .app-panel .links a:focus-visible { border-color: var(--ink); }
+
+  .app-panel .close {
+    margin-top: 0.8rem;
+    font: inherit;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .app-panel .close:hover,
+  .app-panel .close:focus-visible { color: var(--ink); border-bottom-color: var(--hairline); }
+
+  /* a tile is a button now — it opens the panel rather than leaving the page */
+  .app { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  /* the pointer steps aside over the icon, but the click still lands */
+  .app:focus-visible { outline: 1px solid var(--ink-soft); outline-offset: 0.5rem; }
+
   @media (prefers-reduced-motion: reduce) {
     .mark, .crosses { animation: none; }
-    .mark svg, .contact { transition: none; }
+    .mark svg, .contact, .app-panel { transition: none; }
   }
 </style>
 </head>
@@ -378,21 +444,21 @@
 
     <nav style="display:contents" aria-label="Apps">
       <!-- column 1 -->
-      <a class="app" style="grid-area:4/1" href="https://apps.apple.com/is/app/klukk/id6771493324"><img src="icons/klukk.png" alt="KLUKK!"><span class="app-name">KLUKK!</span></a>
-      <a class="app" style="grid-area:5/1" href="https://apps.apple.com/is/app/bill-to-book/id6777167648"><img src="icons/billtobook.png" alt="Bill To Book"><span class="app-name">Bill To Book</span></a>
-      <a class="app round" style="grid-area:6/1" href="https://apps.apple.com/is/app/clock24h/id6780316600"><img src="icons/clock24h.png" alt="Clock24h"><span class="app-name">Clock24h</span></a>
+      <button class="app" type="button" data-app="klukk" style="grid-area:4/1" aria-label="KLUKK! — opna valmynd" aria-expanded="false"><img src="icons/klukk.png" alt=""><span class="app-name">KLUKK!</span></button>
+      <button class="app" type="button" data-app="billtobook" style="grid-area:5/1" aria-label="Bill To Book — opna valmynd" aria-expanded="false"><img src="icons/billtobook.png" alt=""><span class="app-name">Bill To Book</span></button>
+      <button class="app round" type="button" data-app="clock24h" style="grid-area:6/1" aria-label="Clock24h — opna valmynd" aria-expanded="false"><img src="icons/clock24h.png" alt=""><span class="app-name">Clock24h</span></button>
 
       <!-- column 2 -->
-      <!-- in App Review for the first time — swap .soon <span>s for an <a> with the store link once live.
-           FELAG leads to its support page in the meantime -->
-      <a class="app soon" style="grid-area:4/2" href="felag-support.html" aria-label="FELAG — í yfirferð, opnar þjónustusíðu"><img src="icons/felag.png" alt="FELAG"><span class="app-name">FELAG<small>í yfirferð</small></span></a>
-      <a class="app" style="grid-area:5/2" href="https://apps.apple.com/is/app/rukk/id6777342177"><img src="icons/rukk.png" alt="RUKK"><span class="app-name">RUKK</span></a>
-      <a class="app" style="grid-area:6/2" href="https://apps.apple.com/is/app/blizz/id6788556730"><img src="icons/blizz.png" alt="BLIZZ"><span class="app-name">BLIZZ</span></a>
-      <span class="app soon" style="grid-area:7/2" tabindex="0" aria-label="VSKiL — væntanlegt"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></span>
+      <!-- in App Review for the first time — the tile opens its own panel now,
+           which carries the store link once the app is live -->
+      <button class="app soon" type="button" data-app="felag" style="grid-area:4/2" aria-label="FELAG — í yfirferð, opna valmynd" aria-expanded="false"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small>í yfirferð</small></span></button>
+      <button class="app" type="button" data-app="rukk" style="grid-area:5/2" aria-label="RUKK — opna valmynd" aria-expanded="false"><img src="icons/rukk.png" alt=""><span class="app-name">RUKK</span></button>
+      <button class="app" type="button" data-app="blizz" style="grid-area:6/2" aria-label="BLIZZ — opna valmynd" aria-expanded="false"><img src="icons/blizz.png" alt=""><span class="app-name">BLIZZ</span></button>
+      <button class="app soon" type="button" data-app="vskil" style="grid-area:7/2" aria-label="VSKiL — væntanlegt, opna valmynd" aria-expanded="false"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></button>
 
       <!-- column 3 -->
-      <a class="app" style="grid-area:4/3" href="https://apps.apple.com/is/app/rodini/id6780505872"><img src="icons/rodini.png" alt="RODINI"><span class="app-name">RODINI</span></a>
-      <span class="app soon" style="grid-area:5/3" tabindex="0" aria-label="SKRIBB — væntanlegt"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small>væntanlegt</small></span></span>
+      <button class="app" type="button" data-app="rodini" style="grid-area:4/3" aria-label="RODINI — opna valmynd" aria-expanded="false"><img src="icons/rodini.png" alt=""><span class="app-name">RODINI</span></button>
+      <button class="app soon" type="button" data-app="skribb" style="grid-area:5/3" aria-label="SKRIBB — væntanlegt, opna valmynd" aria-expanded="false"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small>væntanlegt</small></span></button>
     </nav>
   </div>
 </main>
@@ -403,24 +469,18 @@
   <span class="place">Reykjavík, Ísland</span>
 </aside>
 
+<aside class="app-panel" id="app-panel" aria-label="Valmynd forrits" hidden>
+  <div class="head">
+    <span class="pname" data-slot="name"></span>
+    <img data-slot="icon" src="" alt="">
+  </div>
+  <p class="pstatus" data-slot="status" hidden></p>
+  <div class="links" aria-live="polite"></div>
+  <button class="close" type="button">Loka</button>
+</aside>
+
 <footer>
   <span class="coords">64°08′N 21°56′V</span>
-  <span class="services">
-    <span class="group">
-      <span class="label">Aðstoð</span>
-      <a href="felag-support.html">FELAG</a>
-      <a href="vskil-support.html">VSKiL</a>
-      <a href="rukk-support.html">RUKK</a>
-      <a href="blizz-support.html">BLIZZ</a>
-    </span>
-    <span class="group">
-      <span class="label">Persónuvernd</span>
-      <a href="felag-privacy.html">FELAG</a>
-      <a href="vskil-privacy.html">VSKiL</a>
-      <a href="rukk-privacy.html">RUKK</a>
-      <a href="blizz-privacy.html">BLIZZ</a>
-    </span>
-  </span>
   <span class="bearing">
     <svg viewBox="0 0 10 10" aria-hidden="true">
       <line x1="5" y1="9" x2="5" y2="2.5"/>
@@ -479,7 +539,8 @@
       taken.add(key(Math.round((r.left - b.left) / cell), Math.round((r.top - b.top) / cell)));
     });
 
-    const keepOut = [...document.querySelectorAll("footer > span")].map(s => {
+    // the footer text and the app panel both claim their corner
+    const keepOut = [...document.querySelectorAll("footer > span, .app-panel")].map(s => {
       const r = s.getBoundingClientRect(), m = 14;
       return { l: r.left - m, r: r.right + m, t: r.top - m, b: r.bottom + m };
     });
@@ -508,6 +569,94 @@
     cancelAnimationFrame(pending);
     pending = requestAnimationFrame(drawCrosses);
   });
+  // ——— the app panel ———
+  // every tile opens its own menu in the top right, so a support or privacy
+  // link is one click away and the grid is never left behind. One app at a
+  // time: clicking another tile swaps the contents in place.
+  const APPS = {
+    klukk:      { name: "KLUKK!",      store: "https://apps.apple.com/is/app/klukk/id6771493324",
+                  privacy: "klukk-privacy.html",      support: "klukk-support.html" },
+    billtobook: { name: "Bill To Book", store: "https://apps.apple.com/is/app/bill-to-book/id6777167648",
+                  privacy: "billtobook-privacy.html", support: "billtobook-support.html" },
+    clock24h:   { name: "Clock24h",    store: "https://apps.apple.com/is/app/clock24h/id6780316600",
+                  privacy: "clock24hs/privacy/",      support: "clock24hs/support/" },
+    felag:      { name: "FELAG",       status: "í yfirferð",
+                  privacy: "felag-privacy.html",      support: "felag-support.html" },
+    rukk:       { name: "RUKK",        store: "https://apps.apple.com/is/app/rukk/id6777342177",
+                  privacy: "https://github.com/nnv-ark/kula-invoicing/blob/main/PRIVACY.md",
+                  support: "rukk-support.html" },
+    blizz:      { name: "BLIZZ",       store: "https://apps.apple.com/is/app/blizz/id6788556730",
+                  privacy: "blizz-privacy.html",      support: "blizz-support.html" },
+    vskil:      { name: "VSKIL",       status: "væntanlegt",
+                  privacy: "vskil-privacy.html",      support: "vskil-support.html" },
+    rodini:     { name: "RODINI",      store: "https://apps.apple.com/is/app/rodini/id6780505872",
+                  privacy: "rodini-privacy.html",     support: "rodini-support.html" },
+    skribb:     { name: "SKRIBB",      status: "væntanlegt",
+                  privacy: "skribb-privacy.html",     support: "skribb-support.html" }
+  };
+
+  const panel = document.querySelector(".app-panel");
+  const slot = n => panel.querySelector(`[data-slot="${n}"]`);
+  const tiles = [...document.querySelectorAll(".app")];
+  // one open panel at a time, so the headings stay uniquely labelled
+  let openTile = null;
+
+  function closePanel() {
+    if (panel.hidden) return;
+    panel.classList.remove("show");
+    if (openTile) {
+      openTile.setAttribute("aria-expanded", "false");
+      openTile = null;
+    }
+    const done = () => { if (!panel.classList.contains("show")) panel.hidden = true; };
+    panel.addEventListener("transitionend", done, { once: true });
+    setTimeout(done, 800);   // reduced motion never fires transitionend
+  }
+
+  function openPanel(tile) {
+    const app = APPS[tile.dataset.app];
+    if (!app) return;
+    if (openTile === tile) { closePanel(); return; }   // the tile toggles
+    if (openTile) openTile.setAttribute("aria-expanded", "false");
+
+    slot("name").textContent = app.name;
+    const icon = slot("icon");
+    icon.src = tile.querySelector("img").src;
+    icon.alt = "";
+    const status = slot("status");
+    status.textContent = app.status || "";
+    status.hidden = !app.status;
+
+    // the links are rebuilt each time, so the live region announces one app
+    const links = panel.querySelector(".links");
+    const entries = [];
+    if (app.store)   entries.push(["App Store →", app.store]);
+    entries.push(["Persónuvernd →", app.privacy]);
+    entries.push(["Aðstoð →", app.support]);
+    links.replaceChildren(...entries.map(([label, href]) => {
+      const a = document.createElement("a");
+      a.textContent = label;
+      a.href = href;
+      return a;
+    }));
+
+    panel.hidden = false;
+    void panel.offsetWidth;        // commit the hidden state before revealing
+    panel.classList.add("show");
+    tile.setAttribute("aria-expanded", "true");
+    openTile = tile;
+  }
+
+  tiles.forEach(t => t.addEventListener("click", () => openPanel(t)));
+  panel.querySelector(".close").addEventListener("click", closePanel);
+  addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+  // a click anywhere else puts the menu away
+  document.addEventListener("pointerdown", e => {
+    if (!openTile) return;
+    if (panel.contains(e.target) || openTile.contains(e.target)) return;
+    closePanel();
+  });
+
   drawCrosses();
 </script>
 
