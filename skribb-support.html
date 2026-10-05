@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SKRIBB — Aðstoð · Support · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم</title>
-<meta name="description" content="Support for the SKRIBB macOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian and Arabic.">
+<title>SKRIBB — Aðstoð · Support · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم · 支持</title>
+<meta name="description" content="Support for the SKRIBB macOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian, Chinese and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     background:var(--paper); color:var(--ink);
-    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     -webkit-font-smoothing:antialiased; line-height:1.65;
   }
   .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
@@ -39,7 +39,7 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
-  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#ar">العربية</a></nav>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#zh">中文</a><span>·</span><a href="#ar">العربية</a></nav>
 
   <section id="is" lang="is">
   <h1>SKRIBB — Aðstoð</h1>
@@ -201,6 +201,29 @@
   <p>Потрібна допомога, знайшли помилку чи маєте пропозицію: <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
 
   <p><a href="skribb-privacy.html#uk">Політика конфіденційності →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="zh" lang="zh-Hans">
+  <h1>SKRIBB — 支持</h1>
+  <p class="lead">SKRIBB 是一款 macOS 应用，用于按照 Húsnæðis- og mannvirkjastofnun (HMS) 的指南，
+  创建和维护产权分割声明（eignaskiptayfirlýsingar）所需的登记表。</p>
+
+  <h2>快速上手</h2>
+  <ul>
+    <li>新建文档（⌘N）。每个项目都是一个独立的 <strong>.skribb</strong> 文档，保存在你存放该项目的位置。</li>
+    <li>先填写<strong>房产</strong>，然后逐个填写<strong>建筑单元</strong>（matshluti）、其<strong>楼层</strong>，最后填写<strong>房间</strong>。房间编号由楼层编号推导而来。</li>
+    <li>面积和体积会随时计算，应用会提示任何缺失的内容，或未通过模板自身检查的内容。</li>
+    <li>选择 <strong>Vista skráningartöflu…</strong>，将数据写入 HMS 官方的 Excel 模板。在 Excel 中打开该文档，点击“Reikna”以填充汇总表。</li>
+    <li>已有的登记表可以<strong>导入</strong>并修正。</li>
+  </ul>
+  <p>应用的界面为冰岛语。</p>
+
+  <h2>联系</h2>
+  <p>如有问题、错误或建议：<a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>。</p>
+
+  <p><a href="skribb-privacy.html#zh">隐私政策 →</a></p>
   </section>
 
   <hr class="lang-skilm">

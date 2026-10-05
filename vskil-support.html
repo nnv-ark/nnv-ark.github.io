@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VSKiL — Support · Aðstoð · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم</title>
-<meta name="description" content="Support for the VSKiL macOS VAT-return app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian and Arabic.">
+<title>VSKiL — Support · Aðstoð · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم · 支持</title>
+<meta name="description" content="Support for the VSKiL macOS VAT-return app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian, Chinese and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     background:var(--paper); color:var(--ink);
-    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     -webkit-font-smoothing:antialiased; line-height:1.65;
   }
   .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
@@ -39,7 +39,7 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
-  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#ar">العربية</a></nav>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#zh">中文</a><span>·</span><a href="#ar">العربية</a></nav>
 
   <section id="is" lang="is">
   <h1>VSKiL — Aðstoð</h1>
@@ -286,6 +286,41 @@
   <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, і ми відповімо.</p>
 
   <p><a href="vskil-privacy.html#uk">Політика конфіденційності →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="zh" lang="zh-Hans">
+  <h1>VSKiL — 支持</h1>
+  <p class="lead">一款原生 macOS 应用，用于向 Skatturinn 编制并提交冰岛增值税申报表（VSK-skýrsla）。</p>
+
+  <h2>快速上手</h2>
+  <ul>
+    <li>你的<strong>公司</strong>在 <strong>Settings → Companies</strong> 中添加：名称、识别号（kennitala）和增值税号。
+        如果你使用 FELAG，VSKiL 会从那里读取你的公司。</li>
+    <li>在 Settings 中保存你公司从 Skatturinn 获取的<strong>网页密钥（veflykill）</strong>。
+        它保存在你 Mac 的钥匙串中，绝不会存放在应用的数据里。</li>
+    <li>选择一个<strong>期间</strong>，然后用 <strong>New Entry (⌘N)</strong> 添加销售和采购，
+        也可以用 <strong>From RUKK…</strong> 从 RUKK 导入增值税汇总，或将文件拖到窗口上。</li>
+    <li>点击 <strong>Fetch Details</strong>，然后 <strong>Validate</strong>，最后点击 <strong>File VAT Return</strong>。
+        收据和缴款通知会显示在应用中。</li>
+  </ul>
+
+  <h2>常见问题</h2>
+  <p><strong>我可以用英语使用 VSKiL 吗？</strong>可以。它会跟随你 Mac 的语言，你也可以在
+  <strong>Settings → General → Language</strong> 中选择英语或冰岛语。</p>
+  <p><strong>我可以保留多家公司吗？</strong>可以。每家公司都有自己的期间、分录和网页密钥，
+  而 RUKK 汇总只会导入到与其所载识别号对应的那家公司。</p>
+  <p><strong>我的窗口去哪了？</strong>VSKiL 是单窗口应用：关闭窗口即退出应用，
+  你的工作会随时保存。再次打开 VSKiL 即可继续。</p>
+  <p><strong>想在没有真实数据的情况下试用吗？</strong>示例文件和操作指南见
+  <a href="/vskil-demo/">nordnordvestur.com/vskil-demo</a>。</p>
+
+  <h2>联系</h2>
+  <p>需要帮助、发现了错误，或者有建议？请发送邮件至
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>，我们会尽快回复你。</p>
+
+  <p><a href="vskil-privacy.html#zh">隐私政策 →</a></p>
   </section>
 
   <hr class="lang-skilm">

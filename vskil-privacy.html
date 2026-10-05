@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VSKiL — Persónuverndarstefna · Privacy Policy · Privatlivspolitik · Datenschutzerklärung · Polityka prywatności · Политика конфиденциальности · Політика конфіденційності · سياسة الخصوصية</title>
-<meta name="description" content="Privacy policy for the VSKiL macOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian and Arabic.">
+<title>VSKiL — Persónuverndarstefna · Privacy Policy · Privatlivspolitik · Datenschutzerklärung · Polityka prywatności · Политика конфиденциальности · Політика конфіденційності · سياسة الخصوصية · 隐私政策</title>
+<meta name="description" content="Privacy policy for the VSKiL macOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian, Chinese and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     background:var(--paper); color:var(--ink);
-    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     -webkit-font-smoothing:antialiased; line-height:1.65;
   }
   .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
@@ -39,7 +39,7 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
-  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#ar">العربية</a></nav>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#zh">中文</a><span>·</span><a href="#ar">العربية</a></nav>
   <section id="is" lang="is">
   <h1>VSKiL — Persónuverndarstefna</h1>
   <p class="updated">Síðast uppfært: 17. september 2026</p>
@@ -468,6 +468,59 @@
   <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>.</p>
 
   <p><a href="vskil-support.html#uk">Підтримка →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="zh" lang="zh-Hans">
+  <h1>VSKiL — 隐私政策</h1>
+  <p class="updated">最后更新：2026 年 9 月 17 日</p>
+
+  <p class="lead">VSKiL 的设计宗旨是让您的业务数据保留在您自己的 Mac 上。我们不运行接收您数据的
+  服务器，也不收集、存储、出售或共享任何个人信息。</p>
+
+  <h2>应用如何处理您的数据</h2>
+  <p>VSKiL 根据您输入的销售和采购分录生成冰岛增值税申报表（VSK）。当您按下
+  <strong>Skila VSK</strong> 时——且仅在当时——报表会通过加密的 HTTPS 直接从您的 Mac 发送至
+  冰岛税务机构 Ríkisskattstjóri 的官方网络服务。报表包含您公司的 kennitala、增值税号以及
+  该期间的金额，并使用您自己的网页密钥（veflykill）进行身份验证。数据仅在您与税务机构之间
+  传输。我们绝不会看到这些数据。</p>
+
+  <h2>我们不收集的信息</h2>
+  <ul>
+    <li>无需账户或登录。</li>
+    <li>不使用任何分析、广告或跟踪技术。</li>
+    <li>发票数据、kennitala、增值税号或网页密钥绝不会发送给 NNV ehf. 或任何第三方。</li>
+    <li>我们不使用第三方数据收集 SDK。</li>
+  </ul>
+
+  <h2>存储在您设备上的信息</h2>
+  <p>公司名称、kennitala、增值税号、发票分录和已申报金额会本地存储在您的 Mac 上，以便应用
+  正常运行。如果您使用 FELAG 公司注册簿，在您授权一次后，应用会直接从其位于您 Mac 上的
+  文件夹中读取共享的 <em>companies.xml</em> 文件——该文件绝不会离开您的设备。所有这些信息
+  都保留在您的 Mac 上（以及您自行创建的备份中，如果您有备份），并在您删除应用及其数据时
+  一并移除。</p>
+
+  <h2>网页密钥（veflykill）</h2>
+  <p>您从 Ríkisskattstjóri 获取的网页密钥存储在 macOS 的钥匙串中，即操作系统加密的
+  凭据存储区——绝不会存储在应用的数据文件中。它仅用于向税务机构的网络服务验证您提交的
+  内容。</p>
+
+  <h2>Ríkisskattstjóri 的网络服务</h2>
+  <p>提交增值税申报表时，您将使用自己的凭据连接到冰岛税务机构运营的服务。税务机构如何处理
+  您提交的数据，受其自身条款和隐私惯例约束。</p>
+
+  <h2>儿童隐私</h2>
+  <p>VSKiL 并非面向儿童，也不会在知情的情况下收集任何人的任何信息。</p>
+
+  <h2>本政策的变更</h2>
+  <p>如果本政策发生变更，更新后的版本将发布在本页面上，并附有新的“最后更新”日期。</p>
+
+  <h2>联系</h2>
+  <p>对隐私有疑问？请发送电子邮件至
+  <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>。</p>
+
+  <p><a href="vskil-support.html#zh">支持 →</a></p>
   </section>
 
   <hr class="lang-skilm">

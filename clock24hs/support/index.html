@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clock24h — Aðstoð · Support · Hjælp · Support · Pomoc · Поддержка · Підтримка · الدعم</title>
-<meta name="description" content="Support for the Clock24h watchOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian and Arabic.">
+<title>Clock24h — Aðstoð · Support · Hjælp · Support · Pomoc · Поддержка · Підтримка · الدعم · 支持</title>
+<meta name="description" content="Support for the Clock24h watchOS app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian, Chinese and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     background:var(--paper); color:var(--ink);
-    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue",sans-serif;
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     -webkit-font-smoothing:antialiased; line-height:1.65;
   }
   .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
@@ -39,7 +39,7 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
-  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#ar">العربية</a></nav>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#zh">中文</a><span>·</span><a href="#ar">العربية</a></nav>
 
   <section id="is" lang="is">
   <h1>Clock24h — Aðstoð</h1>
@@ -340,6 +340,46 @@
   і ми відповімо.</p>
 
   <p><a href="../privacy/#uk">Політика конфіденційності →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="zh" lang="zh-Hans">
+  <h1>Clock24h — 支持</h1>
+  <p class="lead">一款极简的 24 小时模拟表盘，昼夜弧线跟随你所在位置的真实日出与日落。</p>
+
+  <h2>快速上手</h2>
+  <ul>
+    <li>首次启动时，Clock24h 会请求<strong>使用期间的位置权限</strong>。请点按<strong>允许</strong>，
+        表盘才能根据你所在的位置计算当天的日出与日落。如果你拒绝，Clock24h 仍然可用，
+        并回退到 Reykjavík。</li>
+    <li><strong>点按表盘</strong>可在配色主题之间切换——Classic（白色白天、黑色夜晚、红色点缀）
+        与 Dusk（暖琥珀色白天、石板蓝夜晚，并显示日期和城市）。你的选择会在下次启动时保留。</li>
+    <li>正午（<strong>12</strong>）位于顶部，午夜（<strong>0</strong>）位于底部。时针每天只转一整圈，
+        而不是两圈。</li>
+    <li>亮色（白天）与暗色（夜晚）弧线并不固定在 6 和 18——它们跟随你真实的日出与日落，
+        并随季节变长或变短。</li>
+  </ul>
+
+  <h2>常见问题</h2>
+  <p><strong>表盘上的城市不正确，或者只显示 REYKJAVÍK。</strong>Clock24h 通过 Apple 的 MapKit
+  进行反向地理编码。首次查询会在获得位置权限后进行；如果你刚刚安装这个应用，请在启动后稍等片刻。
+  如果它一直停留在备用值上，请检查 Settings → Privacy &amp; Security → Location Services →
+  Clock24h 是否设为 <em>While Using the App</em>。</p>
+
+  <p><strong>盛夏或隆冬时，整个表盘只有一种颜色。</strong>这是正常的。在北极圈以北，太阳可能
+  连续数周不落（午夜太阳——整个表盘呈现白天颜色），也可能连续数周不升（极夜——整个表盘呈现
+  夜晚颜色）。Clock24h 都能从容应对。</p>
+
+  <p><strong>秒针似乎会短暂消失。</strong>分针与秒针在每一分钟的刻度处交汇。每分钟会有一秒钟
+  两者重合。</p>
+
+  <h2>联系</h2>
+  <p>需要帮助、发现了问题，或者有建议？请发送邮件至
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>，
+  我们会尽快回复你。</p>
+
+  <p><a href="../privacy/#zh">隐私政策 →</a></p>
   </section>
 
   <hr class="lang-skilm">
