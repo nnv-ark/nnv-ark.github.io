@@ -3,6 +3,10 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
+  # every Wednesday at 06:00 UTC — rebuild the site from the latest commit on
+  # main, so the page refreshes on its own even if no one has pushed recently
+  schedule:
+    - cron: "0 6 * * 3"
   workflow_dispatch:
 
 permissions:
