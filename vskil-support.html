@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VSKiL — Support · Aðstoð · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · الدعم · 支持</title>
-<meta name="description" content="Support for the VSKiL macOS VAT-return app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian, Chinese and Arabic.">
+<title>VSKiL — Aðstoð · Hjælp · Hilfe · Pomoc · Поддержка · Підтримка · सहायता · Soporte · 支持 · الدعم</title>
+<meta name="description" content="Support for the VSKiL macOS VAT-return app by NNV ehf., in Icelandic, English, Danish, German, Polish, Russian, Ukrainian, Hindi, Spanish, Chinese and Arabic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     background:var(--paper); color:var(--ink);
-    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-family:"DIN Grotesk","D-DIN",Barlow,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans Devanagari","Kohinoor Devanagari","Nirmala UI",sans-serif;
     -webkit-font-smoothing:antialiased; line-height:1.65;
   }
   .wrap { max-width:42rem; margin:0 auto; padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 5rem; }
@@ -39,7 +39,7 @@
 <body>
 <div class="wrap">
   <a class="home" href="/">← Norðnorðvestur</a>
-  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#zh">中文</a><span>·</span><a href="#ar">العربية</a></nav>
+  <nav class="langs" dir="ltr" aria-label="Languages"><a href="#is">Íslenska</a><span>·</span><a href="#en">English</a><span>·</span><a href="#da">Dansk</a><span>·</span><a href="#de">Deutsch</a><span>·</span><a href="#pl">Polski</a><span>·</span><a href="#ru">Русский</a><span>·</span><a href="#uk">Українська</a><span>·</span><a href="#hi">हिन्दी</a><span>·</span><a href="#es">Español</a><span>·</span><a href="#zh">中文</a><span>·</span><a href="#ar">العربية</a></nav>
 
   <section id="is" lang="is">
   <h1>VSKiL — Aðstoð</h1>
@@ -286,6 +286,78 @@
   <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a>, і ми відповімо.</p>
 
   <p><a href="vskil-privacy.html#uk">Політика конфіденційності →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="hi" lang="hi">
+  <h1>VSKiL — सहायता</h1>
+  <p class="lead">आइसलैंड के कर प्राधिकरण (Skatturinn) के साथ आइसलैंड की वैट विवरणी (VSK-skýrsla) तैयार करने और दाखिल करने के लिए एक नेटिव macOS ऐप।</p>
+
+  <h2>शुरुआत कैसे करें</h2>
+  <ul>
+    <li>अपनी <strong>कंपनी</strong> को <strong>Settings → Companies</strong> में जोड़ें: नाम, पहचान संख्या (kennitala) और वैट संख्या।
+        अगर आप FELAG का उपयोग करते हैं, तो VSKiL आपकी कंपनियाँ वहीं से पढ़ लेता है।</li>
+    <li>Settings में Skatturinn से अपनी कंपनी की <strong>वेब कुंजी (veflykill)</strong> सहेजें।
+        यह आपके Mac की Keychain में रहती है, ऐप के डेटा में कभी नहीं।</li>
+    <li>एक <strong>अवधि</strong> चुनें और <strong>New Entry (⌘N)</strong> से बिक्री और खरीद जोड़ें,
+        या RUKK से वैट सारांश <strong>From RUKK…</strong> से या फ़ाइल को विंडो पर खींचकर आयात करें।</li>
+    <li><strong>Fetch Details</strong> पर क्लिक करें, फिर <strong>Validate</strong>, फिर <strong>File VAT Return</strong>।
+        रसीद और भुगतान दावा ऐप में दिखाई देते हैं।</li>
+  </ul>
+
+  <h2>सामान्य प्रश्न</h2>
+  <p><strong>क्या मैं VSKiL अंग्रेज़ी में इस्तेमाल कर सकता हूँ?</strong> हाँ। यह आपके Mac की भाषा के अनुसार चलता है, और आप
+  <strong>Settings → General → Language</strong> में अंग्रेज़ी या आइसलैंडिक चुन सकते हैं।</p>
+  <p><strong>क्या मैं एक से ज़्यादा कंपनियाँ रख सकता हूँ?</strong> हाँ। हर कंपनी की अपनी अवधियाँ, प्रविष्टियाँ और
+  वेब कुंजी होती हैं, और RUKK सारांश हमेशा उसी कंपनी में आयात होता है जिसकी पहचान संख्या उसमें दर्ज होती है।</p>
+  <p><strong>मेरी विंडो कहाँ गई?</strong> VSKiL एकल-विंडो ऐप है: विंडो बंद करने पर यह बंद हो जाता है,
+  और आपका काम चलते-चलते सहेजा जाता है। जारी रखने के लिए VSKiL को फिर से खोलें।</p>
+  <p><strong>असली डेटा के बिना इसे आज़माना चाहते हैं?</strong> नमूना फ़ाइलें और एक मार्गदर्शिका यहाँ उपलब्ध हैं
+  <a href="/vskil-demo/">nordnordvestur.com/vskil-demo</a>।</p>
+
+  <h2>संपर्क</h2>
+  <p>मदद चाहिए, कोई बग मिला, या कोई सुझाव है? हमें
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> पर ईमेल करें, हम
+  आपसे संपर्क करेंगे।</p>
+
+  <p><a href="vskil-privacy.html#hi">गोपनीयता नीति →</a></p>
+  </section>
+
+  <hr class="lang-skilm">
+
+  <section id="es" lang="es">
+  <h1>VSKiL — Soporte</h1>
+  <p class="lead">Una aplicación nativa de macOS para preparar y presentar declaraciones de IVA islandesas (VSK-skýrsla) ante Skatturinn.</p>
+
+  <h2>Primeros pasos</h2>
+  <ul>
+    <li>Agrega tu <strong>empresa</strong> en <strong>Settings → Companies</strong>: nombre, número de identificación (kennitala) y número de IVA.
+        Si usas FELAG, VSKiL lee tus empresas desde ahí.</li>
+    <li>Guarda la <strong>clave web (veflykill)</strong> de tu empresa, obtenida de Skatturinn, en Settings.
+        Se conserva en el Llavero de tu Mac, nunca en los datos de la aplicación.</li>
+    <li>Elige un <strong>período</strong> y agrega ventas y compras con <strong>New Entry (⌘N)</strong>,
+        o importa el resumen de IVA desde RUKK con <strong>From RUKK…</strong> o arrastrando el archivo a la ventana.</li>
+    <li>Haz clic en <strong>Fetch Details</strong>, luego en <strong>Validate</strong> y por último en <strong>File VAT Return</strong>.
+        El recibo y el requerimiento de pago aparecen en la aplicación.</li>
+  </ul>
+
+  <h2>Preguntas frecuentes</h2>
+  <p><strong>¿Puedo usar VSKiL en inglés?</strong> Sí. Sigue el idioma de tu Mac, y puedes elegir
+  inglés o islandés en <strong>Settings → General → Language</strong>.</p>
+  <p><strong>¿Puedo tener más de una empresa?</strong> Sí. Cada empresa tiene sus propios períodos, asientos y
+  clave web, y un resumen de RUKK solo se importa a la empresa cuyo número de identificación contiene.</p>
+  <p><strong>¿A dónde se fue mi ventana?</strong> VSKiL es una aplicación de una sola ventana: cerrar la ventana
+  cierra la aplicación, y tu trabajo se guarda a medida que avanzas. Abre VSKiL de nuevo para continuar.</p>
+  <p><strong>¿Quieres probarlo sin datos reales?</strong> Hay archivos de ejemplo y una guía en
+  <a href="/vskil-demo/">nordnordvestur.com/vskil-demo</a>.</p>
+
+  <h2>Contacto</h2>
+  <p>¿Necesitas ayuda, encontraste un error o tienes una sugerencia? Escríbenos a
+  <a class="mail" href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a> y te
+  responderemos.</p>
+
+  <p><a href="vskil-privacy.html#es">Política de privacidad →</a></p>
   </section>
 
   <hr class="lang-skilm">
