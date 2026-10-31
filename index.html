@@ -424,6 +424,40 @@
   /* the pointer steps aside over the icon, but the click still lands */
   .app:focus-visible { outline: 1px solid var(--ink-soft); outline-offset: 0.5rem; }
 
+  /* ——— language switcher, bottom centre ———
+     reuses the site's language-bar vocabulary; switching is handled in JS
+     since this page has no stacked sections to anchor to */
+  .langs {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(1rem, 4vw, 2.5rem);
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    max-width: calc(100vw - 10rem);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    background: var(--paper);
+    box-shadow: 0 0 0 0.5rem var(--paper);
+    z-index: 2;
+    user-select: none;
+  }
+  .langs button {
+    font: inherit; letter-spacing: inherit;
+    background: none; border: 0; padding: 0 0.3rem; cursor: pointer;
+    color: var(--ink-soft);
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .langs button:hover,
+  .langs button:focus-visible { color: var(--ink); }
+  .langs button[aria-current="true"] { color: var(--ink); border-bottom-color: var(--hairline); }
+  .langs .sep { color: var(--hairline); padding: 0 0.05rem; }
+
   @media (prefers-reduced-motion: reduce) {
     .mark, .crosses { animation: none; }
     .mark svg, .contact, .app-panel { transition: none; }
@@ -451,14 +485,14 @@
       <!-- column 2 -->
       <!-- in App Review for the first time — the tile opens its own panel now,
            which carries the store link once the app is live -->
-      <button class="app soon" type="button" data-app="felag" style="grid-area:4/2" aria-label="FELAG — í yfirferð, opna valmynd" aria-expanded="false"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small>í yfirferð</small></span></button>
+      <button class="app soon" type="button" data-app="felag" style="grid-area:4/2" aria-label="FELAG — í yfirferð, opna valmynd" aria-expanded="false"><img src="icons/felag.png" alt=""><span class="app-name">FELAG<small data-i18n="status.review">í yfirferð</small></span></button>
       <button class="app" type="button" data-app="rukk" style="grid-area:5/2" aria-label="RUKK — opna valmynd" aria-expanded="false"><img src="icons/rukk.png" alt=""><span class="app-name">RUKK</span></button>
       <button class="app" type="button" data-app="blizz" style="grid-area:6/2" aria-label="BLIZZ — opna valmynd" aria-expanded="false"><img src="icons/blizz.png" alt=""><span class="app-name">BLIZZ</span></button>
-      <button class="app soon" type="button" data-app="vskil" style="grid-area:7/2" aria-label="VSKiL — væntanlegt, opna valmynd" aria-expanded="false"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small>væntanlegt</small></span></button>
+      <button class="app soon" type="button" data-app="vskil" style="grid-area:7/2" aria-label="VSKiL — væntanlegt, opna valmynd" aria-expanded="false"><img src="icons/vskil.png" alt=""><span class="app-name">VSKiL<small data-i18n="status.soon">væntanlegt</small></span></button>
 
       <!-- column 3 -->
       <button class="app" type="button" data-app="rodini" style="grid-area:4/3" aria-label="RODINI — opna valmynd" aria-expanded="false"><img src="icons/rodini.png" alt=""><span class="app-name">RODINI</span></button>
-      <button class="app soon" type="button" data-app="skribb" style="grid-area:5/3" aria-label="SKRIBB — væntanlegt, opna valmynd" aria-expanded="false"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small>væntanlegt</small></span></button>
+      <button class="app soon" type="button" data-app="skribb" style="grid-area:5/3" aria-label="SKRIBB — væntanlegt, opna valmynd" aria-expanded="false"><img src="icons/skribb.png" alt=""><span class="app-name">SKRIBB<small data-i18n="status.soon">væntanlegt</small></span></button>
     </nav>
   </div>
 </main>
@@ -466,7 +500,7 @@
 <aside class="contact" id="contact">
   <span class="name">Norðnorðvestur</span>
   <a href="mailto:nordnordvestur@nordnordvestur.com">nordnordvestur@nordnordvestur.com</a><br>
-  <span class="place">Reykjavík, Ísland</span>
+  <span class="place" data-i18n="place">Reykjavík, Ísland</span>
 </aside>
 
 <aside class="app-panel" id="app-panel" aria-label="Valmynd forrits" hidden>
@@ -476,7 +510,7 @@
   </div>
   <p class="pstatus" data-slot="status" hidden></p>
   <div class="links" aria-live="polite"></div>
-  <button class="close" type="button">Loka</button>
+  <button class="close" type="button" data-i18n="close">Loka</button>
 </aside>
 
 <footer>
@@ -489,6 +523,8 @@
     337,5°
   </span>
 </footer>
+
+<nav class="langs" id="langbar" aria-label="Language"></nav>
 
 <script>
   // one full reveal cycle (in → hold 5s → fade 2s) per trigger;
@@ -540,7 +576,7 @@
     });
 
     // the footer text and the app panel both claim their corner
-    const keepOut = [...document.querySelectorAll("footer > span, .app-panel")].map(s => {
+    const keepOut = [...document.querySelectorAll("footer > span, .app-panel, #langbar")].map(s => {
       const r = s.getBoundingClientRect(), m = 14;
       return { l: r.left - m, r: r.right + m, t: r.top - m, b: r.bottom + m };
     });
@@ -580,18 +616,18 @@
                   privacy: "billtobook-privacy.html", support: "billtobook-support.html" },
     clock24h:   { name: "Clock24h",    store: "https://apps.apple.com/is/app/clock24h/id6780316600",
                   privacy: "clock24hs/privacy/",      support: "clock24hs/support/" },
-    felag:      { name: "FELAG",       status: "í yfirferð",
+    felag:      { name: "FELAG",       status: "review",
                   privacy: "felag-privacy.html",      support: "felag-support.html" },
     rukk:       { name: "RUKK",        store: "https://apps.apple.com/is/app/rukk/id6777342177",
                   privacy: "https://github.com/nnv-ark/kula-invoicing/blob/main/PRIVACY.md",
                   support: "rukk-support.html" },
     blizz:      { name: "BLIZZ",       store: "https://apps.apple.com/is/app/blizz/id6788556730",
                   privacy: "blizz-privacy.html",      support: "blizz-support.html" },
-    vskil:      { name: "VSKIL",       status: "væntanlegt",
+    vskil:      { name: "VSKIL",       status: "soon",
                   privacy: "vskil-privacy.html",      support: "vskil-support.html" },
     rodini:     { name: "RODINI",      store: "https://apps.apple.com/is/app/rodini/id6780505872",
                   privacy: "rodini-privacy.html",     support: "rodini-support.html" },
-    skribb:     { name: "SKRIBB",      status: "væntanlegt",
+    skribb:     { name: "SKRIBB",      status: "soon",
                   privacy: "skribb-privacy.html",     support: "skribb-support.html" }
   };
 
@@ -600,6 +636,7 @@
   const tiles = [...document.querySelectorAll(".app")];
   // one open panel at a time, so the headings stay uniquely labelled
   let openTile = null;
+  let cur = "is";
 
   function closePanel() {
     if (panel.hidden) return;
@@ -624,15 +661,15 @@
     icon.src = tile.querySelector("img").src;
     icon.alt = "";
     const status = slot("status");
-    status.textContent = app.status || "";
+    status.textContent = app.status ? STRINGS[cur]["status." + app.status] : "";
     status.hidden = !app.status;
 
     // the links are rebuilt each time, so the live region announces one app
     const links = panel.querySelector(".links");
     const entries = [];
-    if (app.store)   entries.push(["App Store →", app.store]);
-    entries.push(["Persónuvernd →", app.privacy]);
-    entries.push(["Aðstoð →", app.support]);
+    if (app.store)   entries.push([STRINGS[cur]["link.store"], app.store]);
+    entries.push([STRINGS[cur]["link.privacy"], app.privacy]);
+    entries.push([STRINGS[cur]["link.support"], app.support]);
     links.replaceChildren(...entries.map(([label, href]) => {
       const a = document.createElement("a");
       a.textContent = label;
@@ -656,6 +693,72 @@
     if (panel.contains(e.target) || openTile.contains(e.target)) return;
     closePanel();
   });
+
+  // ——— languages ———
+  // The grid carries almost no prose; what little chrome there is (status
+  // labels, panel links, the close button, the place line) is translated
+  // here. Brand names and the coordinates stay as they are. NOTE: all
+  // non-Icelandic strings are machine-drafted and pending review.
+  const LANGS = [
+    ["is","Íslenska"],["en","English"],["da","Dansk"],["de","Deutsch"],
+    ["pl","Polski"],["ru","Русский"],["uk","Українська"],["hi","हिन्दी"],
+    ["es","Español"],["zh","中文"],["ar","العربية"]
+  ];
+  const STRINGS = {
+    is: { "status.review":"í yfirferð", "status.soon":"væntanlegt", "link.store":"App Store →", "link.privacy":"Persónuvernd →", "link.support":"Aðstoð →", "close":"Loka", "place":"Reykjavík, Ísland", "openMenu":"opna valmynd", "contact":"sýna tengiliðaupplýsingar" },
+    en: { "status.review":"in review", "status.soon":"coming soon", "link.store":"App Store →", "link.privacy":"Privacy →", "link.support":"Support →", "close":"Close", "place":"Reykjavík, Iceland", "openMenu":"open menu", "contact":"show contact info" },
+    da: { "status.review":"under gennemgang", "status.soon":"kommer snart", "link.store":"App Store →", "link.privacy":"Privatliv →", "link.support":"Support →", "close":"Luk", "place":"Reykjavík, Island", "openMenu":"åbn menu", "contact":"vis kontaktinfo" },
+    de: { "status.review":"in Prüfung", "status.soon":"demnächst", "link.store":"App Store →", "link.privacy":"Datenschutz →", "link.support":"Support →", "close":"Schließen", "place":"Reykjavík, Island", "openMenu":"Menü öffnen", "contact":"Kontaktinfo anzeigen" },
+    pl: { "status.review":"w recenzji", "status.soon":"wkrótce", "link.store":"App Store →", "link.privacy":"Prywatność →", "link.support":"Pomoc →", "close":"Zamknij", "place":"Reykjavík, Islandia", "openMenu":"otwórz menu", "contact":"pokaż dane kontaktowe" },
+    ru: { "status.review":"на проверке", "status.soon":"скоро", "link.store":"App Store →", "link.privacy":"Конфиденциальность →", "link.support":"Поддержка →", "close":"Закрыть", "place":"Рейкьявик, Исландия", "openMenu":"открыть меню", "contact":"показать контакты" },
+    uk: { "status.review":"на перевірці", "status.soon":"незабаром", "link.store":"App Store →", "link.privacy":"Конфіденційність →", "link.support":"Підтримка →", "close":"Закрити", "place":"Рейкʼявік, Ісландія", "openMenu":"відкрити меню", "contact":"показати контакти" },
+    hi: { "status.review":"समीक्षाधीन", "status.soon":"जल्द आ रहा है", "link.store":"App Store →", "link.privacy":"गोपनीयता →", "link.support":"सहायता →", "close":"बंद करें", "place":"रेक्याविक, आइसलैंड", "openMenu":"मेनू खोलें", "contact":"संपर्क जानकारी दिखाएँ" },
+    es: { "status.review":"en revisión", "status.soon":"próximamente", "link.store":"App Store →", "link.privacy":"Privacidad →", "link.support":"Ayuda →", "close":"Cerrar", "place":"Reikiavik, Islandia", "openMenu":"abrir menú", "contact":"mostrar información de contacto" },
+    zh: { "status.review":"审核中", "status.soon":"即将推出", "link.store":"App Store →", "link.privacy":"隐私 →", "link.support":"支持 →", "close":"关闭", "place":"雷克雅未克，冰岛", "openMenu":"打开菜单", "contact":"显示联系信息" },
+    ar: { "status.review":"قيد المراجعة", "status.soon":"قريبًا", "link.store":"App Store ←", "link.privacy":"الخصوصية ←", "link.support":"الدعم ←", "close":"إغلاق", "place":"ريكيافيك، آيسلندا", "openMenu":"فتح القائمة", "contact":"عرض معلومات التواصل" }
+  };
+  const SUPPORTED = LANGS.map(l => l[0]);
+  const langbar = document.getElementById("langbar");
+
+  function detectLang() {
+    try { const s = localStorage.getItem("nnv-lang"); if (s && SUPPORTED.includes(s)) return s; } catch (e) {}
+    const list = navigator.languages || [navigator.language || "is"];
+    for (const l of list) { const b = (l || "").toLowerCase().split("-")[0]; if (SUPPORTED.includes(b)) return b; }
+    return "is";
+  }
+
+  function applyLang(code) {
+    const S = STRINGS[code] || STRINGS.is;
+    cur = code;
+    document.documentElement.lang = (code === "zh" ? "zh-Hans" : code);
+    document.documentElement.dir = (code === "ar" ? "rtl" : "ltr");
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (S[k] != null) el.textContent = S[k];
+    });
+    tiles.forEach(t => {
+      const app = APPS[t.dataset.app]; if (!app) return;
+      let al = app.name + " — ";
+      if (app.status) al += S["status." + app.status] + ", ";
+      al += S.openMenu;
+      t.setAttribute("aria-label", al);
+    });
+    mark.setAttribute("aria-label", "Norðnorðvestur — " + S.contact);
+    langbar.querySelectorAll("button").forEach(b =>
+      b.setAttribute("aria-current", b.dataset.lang === code ? "true" : "false"));
+    if (openTile) { const t = openTile; openTile = null; openPanel(t); }  // re-render open panel in new language
+    try { localStorage.setItem("nnv-lang", code); } catch (e) {}
+  }
+
+  LANGS.forEach(([code, label], i) => {
+    if (i) { const sep = document.createElement("span"); sep.className = "sep"; sep.textContent = "·"; langbar.appendChild(sep); }
+    const b = document.createElement("button");
+    b.type = "button"; b.dataset.lang = code; b.textContent = label; b.setAttribute("dir", "ltr");
+    b.addEventListener("click", () => applyLang(code));
+    langbar.appendChild(b);
+  });
+
+  applyLang(detectLang());
 
   drawCrosses();
 </script>
